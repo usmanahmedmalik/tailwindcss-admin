@@ -16,8 +16,8 @@
             <ul class="space-y-2">
                 <!-- Menu Item Dashboard Dropdown Start -->
                 <li>
-                    <button id="dashboard-menu-btn" class="w-full flex items-center px-3 py-2 rounded-md text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors duration-150 group focus:outline-none">
-                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 text-blue-500 group-hover:text-blue-600">
+                    <button id="dashboard-menu-btn" class="w-full flex items-center px-3 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 font-medium transition-colors duration-150 group focus:outline-none">
+                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 text-blue-500 group-hover:text-blue-600 dark:text-blue-400 dark:group-hover:text-blue-300">
                             <!-- Dashboard icon SVG -->
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z"/>
@@ -30,10 +30,10 @@
                     </button>
                     <ul id="dashboard-submenu" class="pl-10 mt-1 space-y-1 hidden">
                         <li>
-                            <a href="#" class="block px-3 py-2 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-600 text-sm">Overview</a>
+                            <a href="#" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Overview</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-3 py-2 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-600 text-sm">Analytics</a>
+                            <a href="#" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Analytics</a>
                         </li>
                     </ul>
                 </li>
@@ -55,13 +55,7 @@
                 </svg>
             </button>
             <div class="flex-1">
-                <!-- Dark Mode Switch -->
-                <div class="mb-1 mt-1 flex items-center">
-                    <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
-                    <button id="dark-mode-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-600 focus:outline-none transition-colors">
-                        <span id="dark-mode-knob" class="inline-block h-5 w-5 transform bg-white dark:bg-gray-900 rounded-full transition-transform"></span>
-                    </button>
-                </div>
+                <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Dashboard</span>
             </div>
             <div>
                 <span class="inline-block w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full"></span>
@@ -69,6 +63,13 @@
         </header>
         <!-- Main panel -->
         <main class="flex-1 p-4 md:p-6">
+            <!-- Dark Mode Switch -->
+            <div class="mb-6 flex items-center">
+                <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
+                <button id="dark-mode-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-600 focus:outline-none transition-colors">
+                    <span id="dark-mode-knob" class="inline-block h-5 w-5 transform bg-white dark:bg-gray-900 rounded-full transition-transform"></span>
+                </button>
+            </div>
             <!-- Metric Cards Start -->
             <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4 mb-4">
                 <!-- Metric Card 1 -->
@@ -109,52 +110,52 @@
                 <div class="p-4 border-b">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Recent Orders</h2>
                 </div>
-                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm">
                     <thead class="bg-gray-50 dark:bg-gray-700">
                         <tr>
-                            <th class="px-6 py-3 text-left font-medium text-gray-500">Order ID</th>
-                            <th class="px-6 py-3 text-left font-medium text-gray-500">Customer</th>
-                            <th class="px-6 py-3 text-left font-medium text-gray-500">Date</th>
-                            <th class="px-6 py-3 text-left font-medium text-gray-500">Amount</th>
-                            <th class="px-6 py-3 text-left font-medium text-gray-500">Status</th>
-                            <th class="px-6 py-3 text-right font-medium text-gray-500">Actions</th>
+                            <th class="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300">Order ID</th>
+                            <th class="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300">Customer</th>
+                            <th class="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300">Date</th>
+                            <th class="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300">Amount</th>
+                            <th class="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300">Status</th>
+                            <th class="px-6 py-3 text-right font-medium text-gray-500 dark:text-gray-300">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
+                    <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700">#1001</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">John Doe</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">2024-06-01</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">$120.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700 dark:text-gray-200">#1001</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">John Doe</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500 dark:text-gray-400">2024-06-01</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">$120.00</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-block px-2 py-1 text-xs rounded bg-green-100 text-green-700">Completed</span>
+                                <span class="inline-block px-2 py-1 text-xs rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300">Completed</span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right">
-                                <button class="text-blue-600 hover:underline text-xs">View</button>
+                                <button class="text-blue-600 dark:text-blue-400 hover:underline text-xs">View</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700">#1002</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">Jane Smith</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">2024-06-02</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">$80.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700 dark:text-gray-200">#1002</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">Jane Smith</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500 dark:text-gray-400">2024-06-02</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">$80.00</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-block px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-700">Pending</span>
+                                <span class="inline-block px-2 py-1 text-xs rounded bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300">Pending</span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right">
-                                <button class="text-blue-600 hover:underline text-xs">View</button>
+                                <button class="text-blue-600 dark:text-blue-400 hover:underline text-xs">View</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700">#1003</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">Alice Brown</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">2024-06-03</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">$150.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-700 dark:text-gray-200">#1003</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">Alice Brown</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500 dark:text-gray-400">2024-06-03</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-200">$150.00</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-block px-2 py-1 text-xs rounded bg-red-100 text-red-700">Cancelled</span>
+                                <span class="inline-block px-2 py-1 text-xs rounded bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300">Cancelled</span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right">
-                                <button class="text-blue-600 hover:underline text-xs">View</button>
+                                <button class="text-blue-600 dark:text-blue-400 hover:underline text-xs">View</button>
                             </td>
                         </tr>
                         <!-- Add more rows as needed -->
@@ -168,7 +169,7 @@
     </div>
 </div>
 <script type="module">
-// Responsive sidebar toggle
+// Sidebar toggle logic
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('sidebar-overlay');
 const toggle = document.getElementById('sidebar-toggle');
@@ -181,10 +182,9 @@ function closeSidebar() {
     sidebar.classList.add('-translate-x-full');
     overlay.classList.add('hidden');
 }
-toggle.addEventListener('click', openSidebar);
-overlay.addEventListener('click', closeSidebar);
+if (toggle) toggle.addEventListener('click', openSidebar);
+if (overlay) overlay.addEventListener('click', closeSidebar);
 
-// Ensure sidebar is visible on md+ screens
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 768) {
         sidebar.classList.remove('-translate-x-full');
@@ -201,11 +201,13 @@ const dashboardSubmenu = document.getElementById('dashboard-submenu');
 const dashboardMenuArrow = document.getElementById('dashboard-menu-arrow');
 let dashboardMenuOpen = false;
 
-dashboardMenuBtn.addEventListener('click', () => {
-    dashboardMenuOpen = !dashboardMenuOpen;
-    dashboardSubmenu.classList.toggle('hidden', !dashboardMenuOpen);
-    dashboardMenuArrow.classList.toggle('rotate-180', dashboardMenuOpen);
-});
+if (dashboardMenuBtn) {
+    dashboardMenuBtn.addEventListener('click', () => {
+        dashboardMenuOpen = !dashboardMenuOpen;
+        dashboardSubmenu.classList.toggle('hidden', !dashboardMenuOpen);
+        dashboardMenuArrow.classList.toggle('rotate-180', dashboardMenuOpen);
+    });
+}
 
 // Dark mode toggle logic
 const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -222,14 +224,15 @@ function setDarkMode(enabled) {
     }
 }
 
-darkModeToggle.addEventListener('click', () => {
-    const isDark = htmlEl.classList.contains('dark');
-    setDarkMode(!isDark);
-});
-
-// Initialize knob position on load
-if (document.documentElement.classList.contains('dark')) {
-    darkModeKnob.classList.add('translate-x-5');
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        const isDark = htmlEl.classList.contains('dark');
+        setDarkMode(!isDark);
+    });
+    // Initialize knob position on load
+    if (htmlEl.classList.contains('dark')) {
+        darkModeKnob.classList.add('translate-x-5');
+    }
 }
 </script>
 <script type="module" src="/src/main.js"></script>
