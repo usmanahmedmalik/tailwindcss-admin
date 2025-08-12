@@ -24,10 +24,6 @@ Most existing templates try to be everything to everyone, which can make them ha
 
 TailwindCSS makes it easy to tweak styles. All the JS is plain and simple, so you can add or remove functionality as you need.
 
-## License
-
-Feel free to use, modify, or share this template however you like.
-
 ---
 
 If you have any feedback or suggestions, feel free to open an issue or reach out!
