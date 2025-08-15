@@ -16,7 +16,17 @@
         </header>
 
         <!-- Main panel -->
-        <main class="flex-1 p-4 md:p-6 flex items-center justify-center">
+        <main class="flex-1 p-4 md:p-6 flex flex-col items-center">
+            <!-- ADDED: Dark Mode Switch -->
+            <div class="mb-6 w-full max-w-sm">
+                <div class="flex items-center">
+                    <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
+                    <button id="dark-mode-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-600 focus:outline-none transition-colors">
+                        <span id="dark-mode-knob" class="inline-block h-5 w-5 transform bg-white dark:bg-gray-900 rounded-full transition-transform"></span>
+                    </button>
+                </div>
+            </div>
+
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 w-full max-w-sm">
                 <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Login</h1>
 
@@ -38,6 +48,18 @@
     </div>
 </div>
 
+<!-- ADDED: Dark mode script -->
+<script>
+// Dark mode toggle logic
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const darkModeKnob = document.getElementById('dark-mode-knob');
+const htmlEl = document.documentElement;
+function setDarkMode(enabled){ if(enabled){ htmlEl.classList.add('dark'); darkModeKnob.classList.add('translate-x-5'); } else { htmlEl.classList.remove('dark'); darkModeKnob.classList.remove('translate-x-5'); }}
+if(darkModeToggle){
+  darkModeToggle.addEventListener('click',()=>{ setDarkMode(!htmlEl.classList.contains('dark')); });
+  if(htmlEl.classList.contains('dark')) darkModeKnob.classList.add('translate-x-5');
+}
+</script>
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>
