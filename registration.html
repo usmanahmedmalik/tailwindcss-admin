@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen flex">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-30 z-20 hidden md:hidden"></div>
+
+    <!-- Main content area -->
+    <div class="flex-1 flex flex-col min-w-0">
+        <!-- Top bar -->
+        <header class="h-16 bg-white dark:bg-gray-800 shadow flex items-center px-4 md:px-6">
+        </header>
+
+        <!-- Main panel -->
+        <main class="flex-1 p-4 md:p-6 flex items-center justify-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 w-full max-w-sm">
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Register</h1>
+
+                <form id="registration-form" class="flex flex-col gap-4">
+                    <input type="text" id="username" name="username" required
+                           placeholder="Username"
+                           class="form-input">
+
+                    <input type="email" id="email" name="email" required
+                           placeholder="Email"
+                           class="form-input">
+
+                    <input type="password" id="password" name="password" required
+                           placeholder="Password"
+                           class="form-input">
+
+                    <input type="password" id="confirm-password" name="confirm-password" required
+                           placeholder="Confirm Password"
+                           class="form-input">
+
+                    <button class="blue-button">
+                        Register
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
