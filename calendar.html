@@ -6,40 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
-    <style>
-        /* FullCalendar Tailwind-like customizations (no @apply) */
-        .fc { --fc-border-color:#e5e7eb; --fc-page-bg-color:transparent; font-size:.82rem; }
-        .fc .fc-toolbar.fc-header-toolbar { padding:.75rem 1rem; margin:0 0 .5rem; }
-        .fc .fc-toolbar-title { font-size:1.125rem; font-weight:600; color:#111827; }
-        .dark .fc .fc-toolbar-title { color:#f3f4f6; }
-        .fc .fc-button { background:#fff; border:1px solid #d1d5db; color:#374151; border-radius:.375rem; padding:.35rem .75rem; font-size:.75rem; font-weight:500; line-height:1.1; box-shadow:0 1px 2px 0 rgb(0 0 0 / .05); transition:background .15s; }
-        .fc .fc-button:hover { background:#f9fafb; }
-        .dark .fc .fc-button { background:#1f2937; border-color:#4b5563; color:#e5e7eb; }
-        .dark .fc .fc-button:hover { background:#374151; }
-        .fc .fc-button-primary:not(:disabled).fc-button-active,
-        .fc .fc-button-primary:not(:disabled):active { background:#2563eb; border-color:#2563eb; color:#fff; }
-        .fc .fc-col-header-cell-cushion { padding:6px 4px; font-size:.65rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#6b7280; }
-        .dark .fc .fc-col-header-cell-cushion { color:#9ca3af; }
-        .fc .fc-daygrid-day-number { padding:4px 6px; font-size:.65rem; font-weight:600; color:#4b5563; }
-        .dark .fc .fc-daygrid-day-number { color:#d1d5db; }
-        .fc .fc-daygrid-day-frame { padding:2px; }
-        .fc .fc-daygrid-day { background:#fff; }
-        .dark .fc .fc-daygrid-day { background:#1f2937; }
-        .fc .fc-day-today { background:#eff6ff !important; }
-        .dark .fc .fc-day-today { background:rgba(29,78,216,.35) !important; }
-        .fc .fc-event { border:0; border-radius:.375rem; font-size:.6rem; font-weight:500; padding:2px 6px; }
-        .dark .fc { --fc-border-color:#374151; }
-        /* Ensure internal grid stretches full height */
-        #calendar, #calendar .fc, #calendar .fc-scrollgrid {
-            height:100% !important;
-        }
-        /* Added: explicit calendar wrapper & element fallback heights */
-        #calendar-wrapper { height:calc(100vh - 9.5rem); }
-        @media (min-width:768px){ #calendar-wrapper { height:calc(100vh - 8.5rem); } }
-        #calendar { min-height:600px; }
-        /* Safety: ensure scrollgrid fills */
-        #calendar .fc, #calendar .fc-scrollgrid { height:100% !important; }
-    </style>
+    <link rel="stylesheet" href="/src/calendar.css">
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
 <div class="min-h-screen flex">
@@ -201,68 +168,40 @@ if (darkModeToggle) {
 (function(){
     function buildEvents(){
         const base = new Date();
-        return Array.from({length:14}).map((_,i)=>{
-            return {
-                title:'Event '+(i+1),
-                start:new Date(base.getFullYear(), base.getMonth(), 1 + i*2),
-                allDay:true,
-                idx:i
-            };
-        });
+        return Array.from({length:14}).map((_,i)=>({
+            title:'Event '+(i+1),
+            start:new Date(base.getFullYear(), base.getMonth(), 1 + i*2),
+            allDay:true,
+            idx:i
+        }));
     }
     function initCalendar(){
-        if(!window.FullCalendar){ console.warn('FullCalendar not yet loaded'); return false; }
+        if(!window.FullCalendar) return false;
         const el = document.getElementById('calendar');
-        if(!el){ return false; }
-
-        // Prevent double init
-        if(el.dataset.fcInit) return true;
-        el.dataset.fcInit = '1';
-
-        const calendar = new FullCalendar.Calendar(el,{
+        if(!el || el.dataset.fcInit) return !!el?.dataset.fcInit;
+        el.dataset.fcInit='1';
+        const calendar=new FullCalendar.Calendar(el,{
             initialView:'dayGridMonth',
             headerToolbar:{ left:'title', center:'', right:'prev today next' },
-            height:'100%',
-            contentHeight:'100%',
-            expandRows:true,
-            fixedWeekCount:false,
-            dayMaxEventRows:3,
-            nowIndicator:true,
+            height:'100%', contentHeight:'100%', expandRows:true,
+            fixedWeekCount:false, dayMaxEventRows:3, nowIndicator:true,
             events:buildEvents(),
             eventDidMount(info){
-                const palette=[
-                    'bg-blue-500 text-white',
-                    'bg-green-500 text-white',
-                    'bg-indigo-500 text-white',
-                    'bg-amber-400 text-gray-900',
-                    'bg-rose-500 text-white',
-                    'bg-purple-500 text-white'
-                ];
-                const cls=palette[info.event.extendedProps.idx % palette.length];
-                cls.split(' ').forEach(c=>info.el.classList.add(c));
+                const palette=['bg-blue-500 text-white','bg-green-500 text-white','bg-indigo-500 text-white','bg-amber-400 text-gray-900','bg-rose-500 text-white','bg-purple-500 text-white'];
+                palette[info.event.extendedProps.idx % palette.length].split(' ').forEach(c=>info.el.classList.add(c));
             }
         });
         calendar.render();
-
-        // Resize + dark mode adjustments
         window.addEventListener('resize',()=>calendar.updateSize());
-        const darkToggle=document.getElementById('dark-mode-toggle');
-        darkToggle && darkToggle.addEventListener('click',()=>setTimeout(()=>calendar.updateSize(),250));
-
+        document.getElementById('dark-mode-toggle')?.addEventListener('click',()=>setTimeout(()=>calendar.updateSize(),250));
         return true;
     }
-
-    // Try immediately, then fallback to load event
     if(!initCalendar()){
         window.addEventListener('load',()=>initCalendar());
-        // Small retry loop in case of slow script load
-        let tries=0; const t=setInterval(()=>{
-            if(initCalendar() || ++tries>20) clearInterval(t);
-        },100);
+        let tries=0; const t=setInterval(()=>{ if(initCalendar()||++tries>20) clearInterval(t); },100);
     }
 })();
 </script>
-<!-- ...existing code (main.js) -->
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+/* FullCalendar Tailwind-like customizations */
+.fc {
+  --fc-border-color:#e5e7eb;
+  --fc-page-bg-color:transparent;
+  font-size:.82rem;
+}
+.fc .fc-toolbar.fc-header-toolbar { padding:.75rem 1rem; margin:0 0 .5rem; }
+.fc .fc-toolbar-title { font-size:1.125rem; font-weight:600; color:#111827; }
+.dark .fc .fc-toolbar-title { color:#f3f4f6; }
+.fc .fc-button {
+  background:#fff; border:1px solid #d1d5db; color:#374151;
+  border-radius:.375rem; padding:.35rem .75rem; font-size:.75rem;
+  font-weight:500; line-height:1.1;
+  box-shadow:0 1px 2px 0 rgb(0 0 0 / .05); transition:background .15s;
+}
+.fc .fc-button:hover { background:#f9fafb; }
+.dark .fc .fc-button { background:#1f2937; border-color:#4b5563; color:#e5e7eb; }
+.dark .fc .fc-button:hover { background:#374151; }
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background:#2563eb; border-color:#2563eb; color:#fff;
+}
+.fc .fc-col-header-cell-cushion {
+  padding:6px 4px; font-size:.65rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.05em; color:#6b7280;
+}
+.dark .fc .fc-col-header-cell-cushion { color:#9ca3af; }
+.fc .fc-daygrid-day-number { padding:4px 6px; font-size:.65rem; font-weight:600; color:#4b5563; }
+.dark .fc .fc-daygrid-day-number { color:#d1d5db; }
+.fc .fc-daygrid-day-frame { padding:2px; }
+.fc .fc-daygrid-day { background:#fff; }
+.dark .fc .fc-daygrid-day { background:#1f2937; }
+.fc .fc-day-today { background:#eff6ff !important; }
+.dark .fc .fc-day-today { background:rgba(29,78,216,.35) !important; }
+.fc .fc-event {
+  border:0; border-radius:.375rem; font-size:.6rem; font-weight:500; padding:2px 6px;
+}
+.dark .fc { --fc-border-color:#374151; }
+
+/* Ensure internal grid stretches full height */
+#calendar, #calendar .fc, #calendar .fc-scrollgrid { height:100% !important; }
+
+/* Wrapper height calculations */
+#calendar-wrapper { height:calc(100vh - 9.5rem); }
+@media (min-width:768px){
+  #calendar-wrapper { height:calc(100vh - 8.5rem); }
+}
+#calendar { min-height:600px; }
+#calendar .fc, #calendar .fc-scrollgrid { height:100% !important; }
+
