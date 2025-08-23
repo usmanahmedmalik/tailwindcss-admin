@@ -8,7 +8,7 @@
 <body class="bg-gray-100 dark:bg-gray-900">
 <div class="min-h-screen flex">
     <!-- Sidebar (responsive) -->
-    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-800 shadow-md flex flex-col transform -translate-x-full transition-transform duration-200 ease-in-out md:relative md:translate-x-0 md:flex md:w-64">
+    <aside id="sidebar" class="sidebar">
         <div class="h-16 flex items-center justify-center border-b dark:border-gray-700">
             <span class="font-bold text-xl text-blue-600 dark:text-blue-400">Admin</span>
         </div>
@@ -43,11 +43,11 @@
         </nav>
     </aside>
     <!-- Overlay for mobile sidebar -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-30 z-20 hidden md:hidden"></div>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
     <!-- Main content area -->
     <div class="flex-1 flex flex-col min-w-0">
         <!-- Top bar -->
-        <header class="h-16 bg-white dark:bg-gray-800 shadow flex items-center px-4 md:px-6">
+        <header class="topbar">
             <!-- Sidebar toggle button (mobile) -->
             <button id="sidebar-toggle" class="md:hidden mr-4 focus:outline-none">
                 <svg class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@
                         id="search-input"
                         type="text"
                         placeholder="Search..."
-                        class="block w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                        class="input-search"
                     />
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -73,11 +73,11 @@
                 <!-- Search box end -->
             </div>
             <div>
-                <span class="inline-block w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full"></span>
+                <span class="avatar-sm"></span>
             </div>
         </header>
         <!-- Main panel -->
-        <main class="flex-1 p-4 md:p-6">
+        <main class="main-panel">
             <!-- Dark Mode Switch -->
             <div class="mb-6 flex items-center">
                 <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>

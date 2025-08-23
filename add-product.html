@@ -8,7 +8,7 @@
 <body class="bg-gray-100 dark:bg-gray-900">
 <div class="min-h-screen flex">
     <!-- Sidebar (responsive) -->
-    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-800 shadow-md flex flex-col transform -translate-x-full transition-transform duration-200 ease-in-out md:relative md:translate-x-0 md:flex md:w-64">
+    <aside id="sidebar" class="sidebar">
         <div class="h-16 flex items-center justify-center border-b dark:border-gray-700">
             <span class="font-bold text-xl text-blue-600 dark:text-blue-400">Admin</span>
         </div>
@@ -44,12 +44,12 @@
     </aside>
 
     <!-- Overlay for mobile sidebar -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-20 hidden md:hidden"></div>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
     <!-- Main content area -->
     <div class="flex-1 flex flex-col min-w-0">
         <!-- Top bar -->
-        <header class="h-16 bg-white dark:bg-gray-800 shadow flex items-center px-4 md:px-6">
+        <header class="topbar">
             <!-- Sidebar toggle button (mobile) -->
             <button id="sidebar-toggle" class="md:hidden mr-4 focus:outline-none">
                 <svg class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -59,12 +59,7 @@
             <div class="flex-1">
                 <!-- Search box start -->
                 <div class="relative w-full max-w-xs">
-                    <input
-                        id="search-input"
-                        type="text"
-                        placeholder="Search..."
-                        class="block w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                    />
+                    <input id="search-input" type="text" placeholder="Search..." class="input-search" />
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"></circle>
@@ -75,12 +70,12 @@
                 <!-- Search box end -->
             </div>
             <div>
-                <span class="inline-block w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full"></span>
+                <span class="avatar-sm"></span>
             </div>
         </header>
 
         <!-- Main panel -->
-        <main class="flex-1 p-4 md:p-6">
+        <main class="main-panel">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-8">
                     <h1 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Add Product</h1>
@@ -90,8 +85,8 @@
                 <!-- Dark Mode Switch -->
                 <div class="mb-6 flex items-center">
                     <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
-                    <button id="dark-mode-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-600 focus:outline-none transition-colors">
-                        <span id="dark-mode-knob" class="inline-block h-5 w-5 transform bg-white dark:bg-gray-900 rounded-full transition-transform"></span>
+                    <button id="dark-mode-toggle" type="button" class="toggle-switch">
+                        <span id="dark-mode-knob" class="toggle-knob"></span>
                     </button>
                 </div>
 
@@ -100,23 +95,20 @@
                         <!-- Primary (2 cols) -->
                         <div class="lg:col-span-2 space-y-6">
                             <!-- Product Information -->
-                            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 p-6">
+                            <section class="panel">
                                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Product Information</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div class="md:col-span-2">
-                                        <label for="product-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Product Name</label>
-                                        <input id="product-name" type="text" required placeholder="e.g. Wireless Noise-Canceling Headphones"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                        <label for="product-name" class="form-label">Product Name</label>
+                                        <input id="product-name" type="text" required placeholder="e.g. Wireless Noise-Canceling Headphones" class="form-input">
                                     </div>
                                     <div>
-                                        <label for="sku" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">SKU</label>
-                                        <input id="sku" type="text" placeholder="SKU-00123"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="sku" class="form-label">SKU</label>
+                                        <input id="sku" type="text" placeholder="SKU-00123" class="form-input">
                                     </div>
                                     <div>
-                                        <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
-                                        <select id="category"
-                                                class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="category" class="form-label">Category</label>
+                                        <select id="category" class="form-input">
                                             <option value="">Select category</option>
                                             <option>Clothing</option>
                                             <option>Electronics</option>
@@ -124,27 +116,23 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label for="brand" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Brand</label>
-                                        <input id="brand" type="text" placeholder="Brand"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="brand" class="form-label">Brand</label>
+                                        <input id="brand" type="text" placeholder="Brand" class="form-input">
                                     </div>
                                     <div>
-                                        <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Price</label>
+                                        <label for="price" class="form-label">Price</label>
                                         <div class="relative">
                                             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">$</span>
-                                            <input id="price" type="number" step="0.01" min="0" placeholder="0.00"
-                                                   class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 pl-7 pr-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                            <input id="price" type="number" step="0.01" min="0" placeholder="0.00" class="form-input pl-7 pr-3">
                                         </div>
                                     </div>
                                     <div>
-                                        <label for="stock" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Stock</label>
-                                        <input id="stock" type="number" min="0" placeholder="0"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="stock" class="form-label">Stock</label>
+                                        <input id="stock" type="number" min="0" placeholder="0" class="form-input">
                                     </div>
                                     <div>
-                                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
-                                        <select id="status"
-                                                class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="status" class="form-label">Status</label>
+                                        <select id="status" class="form-input">
                                             <option value="active">Active</option>
                                             <option value="draft">Draft</option>
                                             <option value="archived">Archived</option>
@@ -154,37 +142,33 @@
                             </section>
 
                             <!-- Description -->
-                            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 p-6 mt-2">
+                            <section class="panel mt-2">
                                 <div class="flex items-center justify-between mb-4">
                                     <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Description</h2>
                                     <span class="text-xs text-gray-400 dark:text-gray-500">Markdown supported (basic)</span>
                                 </div>
                                 <label for="description" class="sr-only">Description</label>
-                                <textarea id="description" rows="8" placeholder="Enter detailed product description..."
-                                          class="block w-full resize-y rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm leading-relaxed text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"></textarea>
+                                <textarea id="description" rows="8" placeholder="Enter detailed product description..." class="form-input leading-relaxed resize-y"></textarea>
                             </section>
                         </div>
 
                         <!-- Secondary (1 col) -->
                         <div class="space-y-6">
                             <!-- SEO Meta -->
-                            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 p-6">
+                            <section class="panel">
                                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">SEO Meta</h2>
                                 <div class="space-y-5">
                                     <div>
-                                        <label for="meta-title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Meta Title</label>
-                                        <input id="meta-title" type="text" placeholder="Optimized meta title"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="meta-title" class="form-label">Meta Title</label>
+                                        <input id="meta-title" type="text" placeholder="Optimized meta title" class="form-input">
                                     </div>
                                     <div>
-                                        <label for="meta-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Meta Description</label>
-                                        <textarea id="meta-description" rows="3" placeholder="Short, compelling summary for search engines"
-                                                  class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"></textarea>
+                                        <label for="meta-description" class="form-label">Meta Description</label>
+                                        <textarea id="meta-description" rows="3" placeholder="Short, compelling summary for search engines" class="form-input"></textarea>
                                     </div>
                                     <div>
-                                        <label for="meta-keywords" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Meta Keywords</label>
-                                        <input id="meta-keywords" type="text" placeholder="keyword1, keyword2"
-                                               class="block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                                        <label for="meta-keywords" class="form-label">Meta Keywords</label>
+                                        <input id="meta-keywords" type="text" placeholder="keyword1, keyword2" class="form-input">
                                     </div>
                                 </div>
                             </section>
@@ -193,8 +177,8 @@
 
                     <!-- Actions (sticky bar) -->
                     <div class="h-4"></div>
-                    <div class="sticky bottom-0 inset-x-0 border-t border-gray-200 dark:border-gray-700 bg-gray-50/90 dark:bg-gray-900/80 backdrop-blur py-4">
-                        <div class="max-w-7xl mx-auto px-4 flex items-center justify-start gap-3">
+                    <div class="sticky-actions">
+                        <div class="sticky-actions-inner">
                             <button type="button" class="blue-button w-auto px-6">Cancel</button>
                             <button type="submit" class="blue-button w-auto px-6">Save Product</button>
                         </div>
