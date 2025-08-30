@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen flex">
+  <!-- Sidebar (responsive) -->
+  <aside id="sidebar" class="sidebar">
+    <div class="h-16 flex items-center justify-center border-b dark:border-gray-700">
+      <span class="font-bold text-xl text-blue-600 dark:text-blue-400">Admin</span>
+    </div>
+    <nav class="flex-1 px-4 py-6">
+      <ul class="space-y-2">
+        <!-- Menu Item Dashboard Dropdown Start -->
+        <li>
+          <button id="dashboard-menu-btn" class="w-full flex items-center px-3 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 font-medium transition-colors duration-150 group focus:outline-none">
+            <span class="inline-flex items-center justify-center w-6 h-6 mr-3 text-blue-500 group-hover:text-blue-600 dark:text-blue-400 dark:group-hover:text-blue-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z"/>
+              </svg>
+            </span>
+            <span class="truncate">Menu</span>
+            <svg id="dashboard-menu-arrow" class="ml-auto w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <ul id="dashboard-submenu" class="pl-10 mt-1 space-y-1 hidden">
+            <li>
+              <a href="#" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Overview</a>
+            </li>
+            <li>
+              <a href="#" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Analytics</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Menu Item Dashboard Dropdown End -->
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Overlay for mobile sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <div class="flex-1 flex flex-col min-w-0">
+    <!-- Top bar -->
+    <header class="topbar">
+      <button id="sidebar-toggle" class="md:hidden mr-4 focus:outline-none">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div class="flex-1">
+        <div class="relative w-full max-w-xs">
+          <input id="search-input" type="text" placeholder="Search..." class="input-search" />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"></circle>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-2-2"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div>
+        <span class="avatar-sm"></span>
+      </div>
+    </header>
+
+    <!-- Main panel -->
+    <main class="main-panel">
+      <!-- Dark Mode Switch -->
+      <div class="mb-6 flex items-center">
+        <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
+        <button id="dark-mode-toggle" type="button" class="toggle-switch">
+          <span id="dark-mode-knob" class="toggle-knob"></span>
+        </button>
+      </div>
+
+      <div class="page-container">
+        <div class="mb-6 flex items-center justify-between">
+          <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Checkout</h1>
+          <a href="/cart.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">Back to cart</a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Left: Forms -->
+          <form id="checkout-form" class="lg:col-span-2 space-y-6">
+            <!-- Contact -->
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Contact information</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" type="email" required placeholder="you@example.com" class="form-input" />
+                </div>
+                <div class="md:col-span-2">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input id="phone" type="tel" placeholder="+1 (555) 000-0000" class="form-input" />
+                </div>
+              </div>
+            </section>
+
+            <!-- Billing address -->
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Billing address</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="first-name" class="form-label">First name</label>
+                  <input id="first-name" type="text" required class="form-input" />
+                </div>
+                <div>
+                  <label for="last-name" class="form-label">Last name</label>
+                  <input id="last-name" type="text" required class="form-input" />
+                </div>
+                <div class="md:col-span-2">
+                  <label for="company" class="form-label">Company (optional)</label>
+                  <input id="company" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="country" class="form-label">Country/Region</label>
+                  <select id="country" class="form-input">
+                    <option>United States</option>
+                    <option>Canada</option>
+                    <option>United Kingdom</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="zip" class="form-label">ZIP/Postal code</label>
+                  <input id="zip" type="text" class="form-input" />
+                </div>
+                <div class="md:col-span-2">
+                  <label for="address" class="form-label">Street address</label>
+                  <input id="address" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="city" class="form-label">City</label>
+                  <input id="city" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="state" class="form-label">State/Province</label>
+                  <input id="state" type="text" class="form-input" />
+                </div>
+              </div>
+              <div class="mt-4">
+                <label class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <input id="diff-shipping" type="checkbox" class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500" />
+                  Ship to a different address
+                </label>
+              </div>
+            </section>
+
+            <!-- Shipping address (toggle) -->
+            <section id="shipping-address" class="panel hidden">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Shipping address</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="s-first-name" class="form-label">First name</label>
+                  <input id="s-first-name" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="s-last-name" class="form-label">Last name</label>
+                  <input id="s-last-name" type="text" class="form-input" />
+                </div>
+                <div class="md:col-span-2">
+                  <label for="s-address" class="form-label">Street address</label>
+                  <input id="s-address" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="s-city" class="form-label">City</label>
+                  <input id="s-city" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="s-state" class="form-label">State/Province</label>
+                  <input id="s-state" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="s-zip" class="form-label">ZIP/Postal code</label>
+                  <input id="s-zip" type="text" class="form-input" />
+                </div>
+                <div>
+                  <label for="s-country" class="form-label">Country/Region</label>
+                  <select id="s-country" class="form-input">
+                    <option>United States</option>
+                    <option>Canada</option>
+                    <option>United Kingdom</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <!-- Delivery method -->
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Delivery method</h2>
+              <div class="space-y-3">
+                <label class="flex items-center justify-between gap-4 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer">
+                  <span class="flex items-center gap-3">
+                    <input type="radio" name="shipping" value="standard" data-cost="10" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked />
+                    <span class="text-sm text-gray-800 dark:text-gray-200">Standard (3–5 days)</span>
+                  </span>
+                  <span class="text-sm font-medium text-gray-900 dark:text-gray-100">$10.00</span>
+                </label>
+                <label class="flex items-center justify-between gap-4 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer">
+                  <span class="flex items-center gap-3">
+                    <input type="radio" name="shipping" value="express" data-cost="25" class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                    <span class="text-sm text-gray-800 dark:text-gray-200">Express (1–2 days)</span>
+                  </span>
+                  <span class="text-sm font-medium text-gray-900 dark:text-gray-100">$25.00</span>
+                </label>
+                <label class="flex items-center justify-between gap-4 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer">
+                  <span class="flex items-center gap-3">
+                    <input type="radio" name="shipping" value="pickup" data-cost="0" class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                    <span class="text-sm text-gray-800 dark:text-gray-200">Store pickup</span>
+                  </span>
+                  <span class="text-sm font-medium text-gray-900 dark:text-gray-100">$0.00</span>
+                </label>
+              </div>
+            </section>
+
+            <!-- Payment -->
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Payment</h2>
+              <div class="space-y-3 mb-4">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="payment" value="card" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked />
+                  <span class="text-sm text-gray-800 dark:text-gray-200">Credit/Debit Card</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="payment" value="paypal" class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                  <span class="text-sm text-gray-800 dark:text-gray-200">PayPal</span>
+                </label>
+              </div>
+              <div id="card-fields" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2">
+                  <label for="card-name" class="form-label">Name on card</label>
+                  <input id="card-name" type="text" class="form-input" placeholder="Full name on card" />
+                </div>
+                <div class="md:col-span-2">
+                  <label for="card-number" class="form-label">Card number</label>
+                  <input id="card-number" type="text" inputmode="numeric" class="form-input" placeholder="1234 5678 9012 3456" />
+                </div>
+                <div>
+                  <label for="card-exp" class="form-label">Expiry</label>
+                  <input id="card-exp" type="text" class="form-input" placeholder="MM/YY" />
+                </div>
+                <div>
+                  <label for="card-cvc" class="form-label">CVC</label>
+                  <input id="card-cvc" type="text" class="form-input" placeholder="123" />
+                </div>
+              </div>
+              <p id="paypal-hint" class="hidden mt-3 text-xs text-gray-500 dark:text-gray-400">You will be redirected to PayPal to complete your purchase.</p>
+            </section>
+
+            <!-- Terms + Place order -->
+            <section class="panel">
+              <div class="flex items-start gap-3">
+                <input id="agree" type="checkbox" required class="mt-1 h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500" />
+                <label for="agree" class="text-sm text-gray-700 dark:text-gray-300">I agree to the Terms and Privacy Policy.</label>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a href="/cart.html" class="block w-full text-center rounded-full px-5 py-2.5 text-sm font-semibold border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Back to cart</a>
+                <button type="submit" class="blue-button">Place Order</button>
+              </div>
+            </section>
+          </form>
+
+          <!-- Right: Order Summary -->
+          <aside class="panel h-max">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Order Summary</h2>
+            <ul id="summary-items" class="mb-4 divide-y divide-gray-200 dark:divide-gray-700"></ul>
+            <dl class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Subtotal</dt>
+                <dd id="sum-subtotal" class="font-medium text-gray-900 dark:text-gray-100">$0.00</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Shipping</dt>
+                <dd id="sum-shipping" class="text-gray-700 dark:text-gray-200">$0.00</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Tax (10%)</dt>
+                <dd id="sum-tax" class="text-gray-700 dark:text-gray-200">$0.00</dd>
+              </div>
+              <div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex justify-between">
+                <dt class="font-semibold text-gray-900 dark:text-gray-100">Total</dt>
+                <dd id="sum-total" class="font-semibold text-gray-900 dark:text-gray-100">$0.00</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module">
+  // Sidebar toggle logic
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const toggle = document.getElementById('sidebar-toggle');
+
+  function openSidebar() {
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('hidden');
+  }
+  function closeSidebar() {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+  }
+  if (toggle) toggle.addEventListener('click', openSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.add('hidden');
+    } else {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    }
+  });
+
+  // Dropdown menu logic
+  const dashboardMenuBtn = document.getElementById('dashboard-menu-btn');
+  const dashboardSubmenu = document.getElementById('dashboard-submenu');
+  const dashboardMenuArrow = document.getElementById('dashboard-menu-arrow');
+  let dashboardMenuOpen = false;
+
+  if (dashboardMenuBtn) {
+    dashboardMenuBtn.addEventListener('click', () => {
+      dashboardMenuOpen = !dashboardMenuOpen;
+      dashboardSubmenu.classList.toggle('hidden', !dashboardMenuOpen);
+      dashboardMenuArrow.classList.toggle('rotate-180', dashboardMenuOpen);
+    });
+  }
+
+  // Dark mode toggle logic
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  const darkModeKnob = document.getElementById('dark-mode-knob');
+  const htmlEl = document.documentElement;
+
+  function setDarkMode(enabled) {
+    if (enabled) {
+      htmlEl.classList.add('dark');
+      darkModeKnob.classList.add('translate-x-5');
+    } else {
+      htmlEl.classList.remove('dark');
+      darkModeKnob.classList.remove('translate-x-5');
+    }
+  }
+
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+      const isDark = htmlEl.classList.contains('dark');
+      setDarkMode(!isDark);
+    });
+    if (htmlEl.classList.contains('dark')) {
+      darkModeKnob.classList.add('translate-x-5');
+    }
+  }
+
+  // Checkout data + summary logic
+  const items = [
+    { name: 'Wireless Headphones', qty: 1, price: 199.00 },
+    { name: 'Smart Watch', qty: 1, price: 149.00 },
+    { name: 'Bluetooth Speaker', qty: 2, price: 89.00 },
+  ];
+  const summaryList = document.getElementById('summary-items');
+  const elSubtotal = document.getElementById('sum-subtotal');
+  const elShipping = document.getElementById('sum-shipping');
+  const elTax = document.getElementById('sum-tax');
+  const elTotal = document.getElementById('sum-total');
+
+  function fmt(n) { return `$${n.toFixed(2)}`; }
+
+  function shippingCost() {
+    const chosen = document.querySelector('input[name="shipping"]:checked');
+    return parseFloat(chosen?.dataset.cost || '0');
+    }
+
+  function recalc() {
+    const subtotal = items.reduce((s, it) => s + it.price * it.qty, 0);
+    const ship = shippingCost();
+    const tax = subtotal * 0.10;
+    const total = subtotal + ship + tax;
+
+    elSubtotal.textContent = fmt(subtotal);
+    elShipping.textContent = fmt(ship);
+    elTax.textContent = fmt(tax);
+    elTotal.textContent = fmt(total);
+  }
+
+  function renderSummary() {
+    summaryList.innerHTML = items.map(it => `
+      <li class="py-3 flex items-start justify-between gap-4">
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-gray-900 dark:text-gray-100">${it.name}</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">Qty ${it.qty} × ${fmt(it.price)}</div>
+        </div>
+        <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">${fmt(it.qty * it.price)}</div>
+      </li>
+    `).join('');
+  }
+
+  // Events
+  document.querySelectorAll('input[name="shipping"]').forEach(r => {
+    r.addEventListener('change', recalc);
+  });
+
+  const diffShipping = document.getElementById('diff-shipping');
+  const shippingBlock = document.getElementById('shipping-address');
+  diffShipping.addEventListener('change', (e) => {
+    shippingBlock.classList.toggle('hidden', !e.target.checked);
+  });
+
+  const paymentRadios = document.querySelectorAll('input[name="payment"]');
+  const cardFields = document.getElementById('card-fields');
+  const paypalHint = document.getElementById('paypal-hint');
+  paymentRadios.forEach(r => {
+    r.addEventListener('change', () => {
+      const isCard = document.querySelector('input[name="payment"]:checked')?.value === 'card';
+      cardFields.classList.toggle('hidden', !isCard);
+      paypalHint.classList.toggle('hidden', isCard);
+    });
+  });
+
+  document.getElementById('checkout-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Placeholder submit handling
+    alert('Order placed successfully (demo).');
+  });
+
+  // Init
+  renderSummary();
+  recalc();
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
