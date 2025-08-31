@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Order Placed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen flex">
+  <!-- Sidebar (responsive) -->
+  <aside id="sidebar" class="sidebar">
+    <div class="h-16 flex items-center justify-center border-b dark:border-gray-700">
+      <span class="font-bold text-xl text-blue-600 dark:text-blue-400">Admin</span>
+    </div>
+    <nav class="flex-1 px-4 py-6">
+      <ul class="space-y-2">
+        <!-- ...existing code... sidebar menu items ...existing code... -->
+        <li>
+          <button id="dashboard-menu-btn" class="w-full flex items-center px-3 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 font-medium transition-colors duration-150 group focus:outline-none">
+            <span class="inline-flex items-center justify-center w-6 h-6 mr-3 text-blue-500 group-hover:text-blue-600 dark:text-blue-400 dark:group-hover:text-blue-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z"/>
+              </svg>
+            </span>
+            <span class="truncate">Menu</span>
+            <svg id="dashboard-menu-arrow" class="ml-auto w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <ul id="dashboard-submenu" class="pl-10 mt-1 space-y-1 hidden">
+            <li><a href="/index.html" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Overview</a></li>
+            <li><a href="/product.html" class="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 text-sm">Products</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Overlay for mobile sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <div class="flex-1 flex flex-col min-w-0">
+    <!-- Top bar -->
+    <header class="topbar">
+      <button id="sidebar-toggle" class="md:hidden mr-4 focus:outline-none">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div class="flex-1">
+        <div class="relative w-full max-w-xs">
+          <input id="search-input" type="text" placeholder="Search..." class="input-search" />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"></circle>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-2-2"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div>
+        <span class="avatar-sm"></span>
+      </div>
+    </header>
+
+    <!-- Main panel -->
+    <main class="main-panel">
+      <!-- Dark Mode Switch -->
+      <div class="mb-6 flex items-center">
+        <label for="dark-mode-toggle" class="mr-3 text-gray-700 dark:text-gray-200 font-medium">Dark Mode</label>
+        <button id="dark-mode-toggle" type="button" class="toggle-switch">
+          <span id="dark-mode-knob" class="toggle-knob"></span>
+        </button>
+      </div>
+
+      <div class="page-container">
+        <!-- Success header -->
+        <div class="panel mb-8">
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/40 dark:text-green-300">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">Thank you! Your order is confirmed.</h1>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Order <span id="order-id" class="font-medium text-gray-900 dark:text-gray-100">#—</span> has been placed. A confirmation email was sent to <span id="order-email" class="font-medium">you@example.com</span>.</p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="/product.html" class="rounded-full px-5 py-2.5 text-sm font-semibold border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Continue Shopping</a>
+            <button id="print-receipt" class="blue-button w-auto px-6">Print receipt</button>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Left: Addresses & Payment -->
+          <div class="space-y-6 lg:col-span-2">
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Shipping address</h2>
+              <div class="text-sm text-gray-700 dark:text-gray-200 space-y-1" id="ship-address">
+                <div>John Doe</div>
+                <div>123 Market Street</div>
+                <div>San Francisco, CA 94103</div>
+                <div>United States</div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Billing address</h2>
+              <div class="text-sm text-gray-700 dark:text-gray-200 space-y-1" id="bill-address">
+                <div>John Doe</div>
+                <div>123 Market Street</div>
+                <div>San Francisco, CA 94103</div>
+                <div>United States</div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Payment</h2>
+              <div class="text-sm text-gray-700 dark:text-gray-200 flex items-center gap-3">
+                <span class="inline-flex h-8 w-12 items-center justify-center rounded border border-gray-200 dark:border-gray-700">VISA</span>
+                <span>Card ending in <span class="font-medium">4242</span></span>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Delivery method</h2>
+              <p class="text-sm text-gray-700 dark:text-gray-200">Standard shipping (3–5 days)</p>
+            </section>
+          </div>
+
+          <!-- Right: Order Summary -->
+          <aside class="panel h-max">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Order Summary</h2>
+            <ul id="summary-items" class="mb-4 divide-y divide-gray-200 dark:divide-gray-700"></ul>
+            <dl class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Subtotal</dt>
+                <dd id="sum-subtotal" class="font-medium text-gray-900 dark:text-gray-100">$0.00</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Shipping</dt>
+                <dd id="sum-shipping" class="text-gray-700 dark:text-gray-200">$0.00</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600 dark:text-gray-300">Tax (10%)</dt>
+                <dd id="sum-tax" class="text-gray-700 dark:text-gray-200">$0.00</dd>
+              </div>
+              <div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex justify-between">
+                <dt class="font-semibold text-gray-900 dark:text-gray-100">Total</dt>
+                <dd id="sum-total" class="font-semibold text-gray-900 dark:text-gray-100">$0.00</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module">
+// Sidebar toggle logic
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebar-overlay');
+const toggle = document.getElementById('sidebar-toggle');
+function openSidebar(){ sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); }
+function closeSidebar(){ sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
+if (toggle) toggle.addEventListener('click', openSidebar);
+if (overlay) overlay.addEventListener('click', closeSidebar);
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) { sidebar.classList.remove('-translate-x-full'); overlay.classList.add('hidden'); }
+  else { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
+});
+
+// Dropdown menu logic
+const dashboardMenuBtn = document.getElementById('dashboard-menu-btn');
+const dashboardSubmenu = document.getElementById('dashboard-submenu');
+const dashboardMenuArrow = document.getElementById('dashboard-menu-arrow');
+let dashboardMenuOpen = false;
+if (dashboardMenuBtn) {
+  dashboardMenuBtn.addEventListener('click', () => {
+    dashboardMenuOpen = !dashboardMenuOpen;
+    dashboardSubmenu.classList.toggle('hidden', !dashboardMenuOpen);
+    dashboardMenuArrow.classList.toggle('rotate-180', dashboardMenuOpen);
+  });
+}
+
+// Dark mode toggle logic
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const darkModeKnob = document.getElementById('dark-mode-knob');
+const htmlEl = document.documentElement;
+function setDarkMode(enabled){
+  if(enabled){ htmlEl.classList.add('dark'); darkModeKnob.classList.add('translate-x-5'); }
+  else { htmlEl.classList.remove('dark'); darkModeKnob.classList.remove('translate-x-5'); }
+}
+if (darkModeToggle) {
+  darkModeToggle.addEventListener('click', () => {
+    const isDark = htmlEl.classList.contains('dark');
+    setDarkMode(!isDark);
+  });
+  if (htmlEl.classList.contains('dark')) darkModeKnob.classList.add('translate-x-5');
+}
+
+// Success data (demo) + summary logic
+const params = new URLSearchParams(location.search);
+const orderId = params.get('order') || ('#' + Math.floor(100000 + Math.random()*900000));
+document.getElementById('order-id').textContent = orderId;
+
+const email = params.get('email') || 'you@example.com';
+document.getElementById('order-email').textContent = email;
+
+const items = [
+  { name: 'Wireless Headphones', qty: 1, price: 199.00 },
+  { name: 'Smart Watch', qty: 1, price: 149.00 },
+  { name: 'Bluetooth Speaker', qty: 2, price: 89.00 },
+];
+
+const summaryList = document.getElementById('summary-items');
+const elSubtotal = document.getElementById('sum-subtotal');
+const elShipping = document.getElementById('sum-shipping');
+const elTax = document.getElementById('sum-tax');
+const elTotal = document.getElementById('sum-total');
+
+function fmt(n){ return `$${n.toFixed(2)}`; }
+function shippingCost(){ return 10; }
+function recalc(){
+  const subtotal = items.reduce((s, it) => s + it.price*it.qty, 0);
+  const ship = shippingCost();
+  const tax = subtotal * 0.10;
+  const total = subtotal + ship + tax;
+  elSubtotal.textContent = fmt(subtotal);
+  elShipping.textContent = fmt(ship);
+  elTax.textContent = fmt(tax);
+  elTotal.textContent = fmt(total);
+}
+function renderSummary(){
+  summaryList.innerHTML = items.map(it => `
+    <li class="py-3 flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">${it.name}</div>
+        <div class="text-xs text-gray-500 dark:text-gray-400">Qty ${it.qty} × ${fmt(it.price)}</div>
+      </div>
+      <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">${fmt(it.qty*it.price)}</div>
+    </li>
+  `).join('');
+}
+renderSummary();
+recalc();
+
+// Print
+document.getElementById('print-receipt')?.addEventListener('click', () => window.print());
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
