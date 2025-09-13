@@ -19,8 +19,12 @@
 <div class="min-h-screen flex flex-col">
     <!-- Logo Area -->
     <div class="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <span class="text-xl font-bold tracking-tight">Community Masjid</span>
+            <!-- Moved Dark Mode Toggle Here -->
+            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-gray-700 transition flex items-center px-1">
+                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-gray-200 rounded-full shadow transform transition"></span>
+            </button>
         </div>
     </div>
 
@@ -34,10 +38,7 @@
                 <li><a href="#events" class="hover:text-blue-600 dark:hover:text-blue-400">Events</a></li>
                 <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
             </ul>
-            <!-- Dark mode toggle (reusing existing IDs) -->
-            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-gray-700 transition flex items-center px-1">
-                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-gray-200 rounded-full shadow transform transition"></span>
-            </button>
+            <!-- Removed dark mode toggle from here -->
         </div>
     </nav>
 
