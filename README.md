@@ -1,4 +1,4 @@
-# Simple Admin Dashboard Template
+# Random but simple tailwindcss Templates
 
 Welcome! This is a super straightforward admin dashboard template built with TailwindCSS and vanilla JavaScript. I made this because most dashboard templates out there try to cover every possible use case and end up feeling bloated or complicated. Sometimes, you just want something simple you can clone and start working on right away—so here it is.
 
