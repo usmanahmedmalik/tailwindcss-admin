@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home - European Islamic Forum Netherlands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Early dark mode -->
+    <script>
+        (function () {
+            const pref = localStorage.getItem('theme');
+            if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+    <!-- Assume Tailwind & global styles already loaded elsewhere -->
+    <style>
+      /* Removed old .dark .hero-green-layer rule */
+      .hero-overlay-layer {
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      }
+      .dark .hero-overlay-layer {
+        background:
+          linear-gradient(to bottom, rgba(3,48,42,0.25), rgba(3,48,42,0.75)),
+          radial-gradient(circle at 40% 40%, rgba(10,97,84,0.25), rgba(3,48,42,0.55));
+      }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<div class="min-h-screen flex flex-col">
+    <!-- Logo Area -->
+    <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight">European Islamic Forum Netherlands</span>
+            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-green-800 transition flex items-center px-1">
+                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-green-200 rounded-full shadow transform transition"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-emerald-300">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-600 dark:hover:text-emerald-300">About</a></li>
+                <li><a href="#programs" class="hover:text-blue-600 dark:hover:text-emerald-300">Programs</a></li>
+                <li><a href="#events" class="hover:text-blue-600 dark:hover:text-emerald-300">Events</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-emerald-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section-->
+    <section id="about" class="py-20 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6">About European Islamic Forum Netherlands</h2>
+            <p class="text-lg text-gray-700 dark:text-emerald-200 mb-4">
+                European Islamic Forum Netherlands is an excellent platform dedicated to understanding and supporting the religious, national, social, and ethical affairs of Muslims. This forum promotes a mission of love, free from sectarianism, hatred, and extremism. It serves as a unifying space to foster understanding, compassion, and cooperation among Muslims in Europe.
+            </p>
+            <p class="text-base text-gray-600 dark:text-emerald-100 mb-4">
+                Our organization is committed to providing educational programs, community outreach, youth empowerment, and interfaith dialogue. We strive to create a welcoming environment for all, encouraging constructive engagement with wider society while preserving authentic spiritual and ethical identity.
+            </p>
+            <p class="text-base text-gray-600 dark:text-emerald-100">
+                Through our initiatives, we aim to nurture leadership, promote unity, and support the holistic development of individuals and communities. We believe in transparency, accountability, and collaboration as the foundation for positive change.
+            </p>
+        </div>
+    </section>
+
+    <!-- More Information Section -->
+    <section id="more-info" class="py-16 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-2xl font-semibold mb-4">More Information</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-emerald-200">
+                <li>Founded: 2023</li>
+                <li>Location: Netherlands, serving the European Muslim community</li>
+                <li>Focus Areas: Education, social welfare, youth leadership, interfaith cooperation, research & advisory</li>
+                <li>Core Values: Unity, compassion, integrity, inclusivity, and service</li>
+                <li>Contact: <a href="mailto:info@masjid.org" class="text-blue-600 dark:text-emerald-300 underline">info@masjid.org</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="py-20 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-2xl font-semibold mb-10 text-center">Our Members</h3>
+            <div class="grid gap-8 md:grid-cols-3">
+                <div class="flex flex-col items-center bg-gray-50 dark:bg-green-950 rounded-xl p-6 shadow border border-gray-100 dark:border-green-800">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 dark:bg-green-800 mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://via.placeholder.com/96x96?text=Photo" alt="Member Photo" class="object-cover w-full h-full rounded-full" />
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1 text-gray-800 dark:text-emerald-200">Amina Yusuf</h4>
+                    <p class="text-sm text-gray-600 dark:text-emerald-100 mb-2">President</p>
+                    <p class="text-xs text-gray-500 dark:text-emerald-300/70 text-center">Experienced community leader and advocate for interfaith dialogue.</p>
+                </div>
+                <div class="flex flex-col items-center bg-gray-50 dark:bg-green-950 rounded-xl p-6 shadow border border-gray-100 dark:border-green-800">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 dark:bg-green-800 mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://via.placeholder.com/96x96?text=Photo" alt="Member Photo" class="object-cover w-full h-full rounded-full" />
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1 text-gray-800 dark:text-emerald-200">Omar Rahman</h4>
+                    <p class="text-sm text-gray-600 dark:text-emerald-100 mb-2">Vice President</p>
+                    <p class="text-xs text-gray-500 dark:text-emerald-300/70 text-center">Youth mentor and coordinator of educational programs.</p>
+                </div>
+                <div class="flex flex-col items-center bg-gray-50 dark:bg-green-950 rounded-xl p-6 shadow border border-gray-100 dark:border-green-800">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 dark:bg-green-800 mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://via.placeholder.com/96x96?text=Photo" alt="Member Photo" class="object-cover w-full h-full rounded-full" />
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1 text-gray-800 dark:text-emerald-200">Fatima El Amrani</h4>
+                    <p class="text-sm text-gray-600 dark:text-emerald-100 mb-2">Secretary</p>
+                    <p class="text-xs text-gray-500 dark:text-emerald-300/70 text-center">Organizer and communications specialist for the Forum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+            <div>
+                <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
+                <p>123 Main Street<br/>City, ST 00000</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Links</h4>
+                <ul class="space-y-1">
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#programs" class="hover:text-white">Programs</a></li>
+                    <li><a href="#events" class="hover:text-white">Events</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Connect</h4>
+                <p>Email: info@masjid.org</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
+    </footer>
+</div>
+
+<script type="module">
+    // Sticky nav
+    const nav = document.getElementById('mainNav');
+    // ...existing code (hero reference if needed)...
+    function handleScroll() {
+        if (window.scrollY > 10) {
+            nav.classList.add('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.remove('bg-white/90','dark:bg-green-950/90');
+        } else {
+            nav.classList.remove('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.add('bg-white/90','dark:bg-green-950/90');
+        }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    // Dark mode toggle logic (extended with persistence)
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeKnob = document.getElementById('dark-mode-knob');
+    const htmlEl = document.documentElement;
+
+    function setDarkMode(enabled) {
+        if (enabled) {
+            htmlEl.classList.add('dark');
+            darkModeKnob.classList.add('translate-x-6');
+            localStorage.setItem('theme','dark');
+        } else {
+            htmlEl.classList.remove('dark');
+            darkModeKnob.classList.remove('translate-x-6');
+            localStorage.setItem('theme','light');
+        }
+    }
+
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            setDarkMode(!htmlEl.classList.contains('dark'));
+        });
+        if (htmlEl.classList.contains('dark')) {
+            darkModeKnob.classList.add('translate-x-6');
+        }
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
