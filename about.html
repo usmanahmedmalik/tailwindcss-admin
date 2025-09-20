@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About Us - European Islamic Forum Netherlands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn more about the European Islamic Forum Netherlands, our story, leadership and how to get involved." />
+    <!-- Early dark mode -->
+    <script>
+        (function () {
+            const pref = localStorage.getItem('theme');
+            if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+    <style>
+      .hero-overlay-layer {
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(to bottom right, rgba(3, 76, 66, 0.85), rgba(3, 48, 42, 0.85));
+      }
+      .dark .hero-overlay-layer {
+        background:
+          linear-gradient(to bottom right, rgba(6, 95, 70, 0.6), rgba(15, 118, 110, 0.65)),
+          linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.8));
+      }
+      .backdrop-blur-md {
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<div class="min-h-screen flex flex-col">
+    <!-- Logo Area -->
+    <div class="w-full bg-white/80 dark:bg-green-950/90 border-b border-gray-200/70 dark:border-green-900/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/home.html" class="text-xl font-bold tracking-tight hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors">European Islamic Forum Netherlands</a>
+            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-green-800 transition flex items-center px-1">
+                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-green-200 rounded-full shadow transform transition"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/80 dark:bg-green-950/90 border-b border-gray-200/70 dark:border-green-900/70 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="/home.html" class="hover:text-emerald-600 dark:hover:text-emerald-300">Home</a></li>
+                <li><a href="#story" class="text-emerald-600 dark:text-emerald-300">About</a></li>
+                <li><a href="#leadership" class="hover:text-emerald-600 dark:hover:text-emerald-300">Leadership</a></li>
+                <li><a href="#approach" class="hover:text-emerald-600 dark:hover:text-emerald-300">Approach</a></li>
+                <li><a href="#visit" class="hover:text-emerald-600 dark:hover:text-emerald-300">Visit</a></li>
+            </ul>
+            <a href="mailto:info@eiforum.nl" class="hidden sm:inline-flex items-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative w-full min-h-[60vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay-layer"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 py-24 text-white">
+            <p class="text-sm uppercase tracking-[0.4em] text-emerald-200/80 mb-4">About Us</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Cultivating Flourishing Muslim Communities Across Europe</h1>
+            <p class="text-base md:text-lg text-emerald-100/90 max-w-2xl">European Islamic Forum Netherlands convenes scholars, professionals, youth and community partners around a shared mission of ethical leadership, civic engagement, and compassionate service.</p>
+        </div>
+    </section>
+
+    <!-- Who we are -->
+    <section id="story" class="py-20 bg-white dark:bg-green-900 border-b border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-[2fr,3fr] gap-12 items-start">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold">Who We Are</h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-emerald-200/80 leading-relaxed">
+                    Founded in 2011, the European Islamic Forum Netherlands is a platform for collaboration, guidance, and impact-driven initiatives serving Muslim communities throughout the continent. We champion intellectual growth, spiritual refinement, and social responsibility through a network of strategic partners and local chapters.
+                </p>
+                <p class="text-sm md:text-base text-gray-600 dark:text-emerald-200/80 leading-relaxed">
+                    Our team brings together educators, policy specialists, counselors, researchers, and artists who work in unison to shape inclusive programming and cultivate principled leadership. We believe that flourishing communities are built on justice, equity, empathy, and a fearless commitment to the common good.
+                </p>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="p-5 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800">
+                        <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Founded</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-emerald-200">2011</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800">
+                        <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Partner Cities</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-emerald-200">25+</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800">
+                        <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Community Members</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-emerald-200">30K+</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8" id="approach">
+                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-emerald-200">What drives us</h3>
+                    <p class="text-sm md:text-base text-gray-600 dark:text-emerald-200/80 leading-relaxed">
+                        The Forum operates on a values-based framework: prophetic ethics, scholarly rigor, and collaborative problem-solving. Programs span civic education, youth mentorship, research translation, and culturally responsive wellbeing services, ensuring every community can access relevant resources and trusted guidance.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-900 text-white shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Strategic Pillars</h3>
+                    <ul class="space-y-3 text-sm md:text-base text-emerald-50/90">
+                        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-200"></span><span>Scholarship and research translated into practical community support.</span></li>
+                        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-200"></span><span>Leadership pathways for youth and professionals grounded in service.</span></li>
+                        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-200"></span><span>Inclusive civic engagement cultivating trust with institutions and neighbours.</span></li>
+                        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-200"></span><span>Holistic wellness resources that honour faith, identity, and mental health.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-gray-50 dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">A Decade of Collective Progress</h2>
+            <div class="relative border-l border-gray-300 dark:border-green-800 pl-8 space-y-12">
+                <div class="relative">
+                    <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-emerald-500 border-4 border-gray-50 dark:border-green-950"></span>
+                    <h3 class="text-lg font-semibold">2011 — Founding Summit</h3>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80">Community leaders convened to articulate a unified voice for European Muslims and formed the Forum with a charter rooted in mercy and justice.</p>
+                </div>
+                <div class="relative">
+                    <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-emerald-500 border-4 border-gray-50 dark:border-green-950"></span>
+                    <h3 class="text-lg font-semibold">2015 — Youth & Civic Labs</h3>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80">Launched innovation labs pairing scholars with young professionals to develop civic engagement toolkits and leadership retreats.</p>
+                </div>
+                <div class="relative">
+                    <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-emerald-500 border-4 border-gray-50 dark:border-green-950"></span>
+                    <h3 class="text-lg font-semibold">2019 — Wellbeing Consortium</h3>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80">Established cross-country wellbeing resources, integrating counseling, mentorship, and faith-informed mental health frameworks.</p>
+                </div>
+                <div class="relative">
+                    <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-emerald-500 border-4 border-gray-50 dark:border-green-950"></span>
+                    <h3 class="text-lg font-semibold">2023 — Digital Knowledge Hub</h3>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80">Rolled out multilingual digital libraries, podcasts, and research spotlights to connect communities with expert guidance worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="leadership" class="py-20 bg-white dark:bg-green-900 border-b border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold">Leadership & Contributors</h2>
+                    <p class="text-sm md:text-base text-gray-600 dark:text-emerald-200/80 max-w-2xl">Our volunteer board and advisory council reflect the breadth of expertise within our community. Meet some of the people shaping programs, research, and community partnerships.</p>
+                </div>
+                <a href="/volunteer" class="inline-flex items-center px-5 py-3 rounded-md bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-500">Join the Team</a>
+            </div>
+            <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Dr. Amina Farouq</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Chair, Strategic Partnerships</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Civic engagement scholar spearheading European-wide coalitions on social cohesion, inclusive policy, and ethical advocacy.</p>
+                </article>
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Yusuf Abdelrahman</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Director, Youth Initiatives</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Leads mentorship cohorts, innovation labs, and arts residencies designed to empower youth with faith-informed leadership skills.</p>
+                </article>
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Nadia El-Hassan</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Wellbeing Program Lead</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Clinical counselor curating culturally grounded wellbeing services and training community responders across partner cities.</p>
+                </article>
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Imran Kaleem</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Head of Research & Policy</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Coordinates policy briefs, research publications, and advisory councils informing governments and civic institutions.</p>
+                </article>
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Sara Idrissi</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Community Development Advisor</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Supports local hubs with curriculum design, volunteer training, and data-informed program evaluation.</p>
+                </article>
+                <article class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-100 dark:border-green-800 shadow-sm">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait placeholder" class="h-16 w-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-emerald-200">Omar Khan</h3>
+                            <p class="text-sm text-gray-500 dark:text-emerald-300/70">Digital Experience Designer</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-emerald-200/80 leading-relaxed">Designs digital storytelling, online classrooms, and platforms that connect diasporic communities to shared knowledge.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="visit" class="py-20 bg-gray-50 dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold">Visit & Connect</h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-emerald-200/80 leading-relaxed">Our hub in The Hague welcomes partners, researchers, youth leaders, and families. Reach out to coordinate a visit, access resources, or explore collaborative projects.</p>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mb-1">Address</h3>
+                        <p class="text-sm text-gray-700 dark:text-emerald-200">Laan van Meerdervoort 123<br>The Hague, Netherlands</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mb-1">Contact</h3>
+                        <p class="text-sm text-gray-700 dark:text-emerald-200">info@eiforum.nl<br>+31 (0) 70 000 0000</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mb-1">Office Hours</h3>
+                        <p class="text-sm text-gray-700 dark:text-emerald-200">Mon – Fri: 09:00 – 17:00<br>Sat: By appointment</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mb-1">Stay Informed</h3>
+                        <p class="text-sm text-gray-700 dark:text-emerald-200">Subscribe to our quarterly briefing for program updates and research highlights.</p>
+                    </div>
+                </div>
+                <a href="mailto:info@eiforum.nl" class="inline-flex items-center px-5 py-3 rounded-md bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-500">Schedule a Visit</a>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-green-800">
+                <iframe class="w-full h-[360px] md:h-[420px]" title="European Islamic Forum Netherlands location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9789.057014085413!2d4.2844191182502435!3d52.07494597488167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b72c5a20ef17%3A0x31e2f795882b58c5!2sThe%20Hague!5e0!3m2!1sen!2snl!4v1697040000000!5m2!1sen!2snl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="py-20 bg-gradient-to-br from-emerald-700 via-emerald-800 to-emerald-950 text-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Partner With the Forum</h2>
+            <p class="text-sm md:text-base text-emerald-100/80 mb-8">Collaborate on research, civic initiatives, and programmes that strengthen our shared future. Your support amplifies voices of compassion and principled leadership.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/donate" class="px-8 py-3 rounded-md bg-white text-emerald-700 font-semibold shadow hover:bg-emerald-100">Support Our Work</a>
+                <a href="/programs" class="px-8 py-3 rounded-md bg-transparent border border-emerald-200 text-white font-semibold hover:bg-emerald-600/30">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+            <div>
+                <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
+                <p>Laan van Meerdervoort 123<br>The Hague, Netherlands</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Quick Links</h4>
+                <ul class="space-y-1">
+                    <li><a href="/home.html" class="hover:text-white">Home</a></li>
+                    <li><a href="#leadership" class="hover:text-white">Leadership</a></li>
+                    <li><a href="#visit" class="hover:text-white">Visit</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Connect</h4>
+                <p>Email: info@eiforum.nl</p>
+                <p>Phone: +31 (0) 70 000 0000</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands. All rights reserved.</div>
+    </footer>
+</div>
+
+<script type="module">
+    const nav = document.getElementById('mainNav');
+    function handleScroll() {
+        if (window.scrollY > 10) {
+            nav.classList.add('bg-emerald-900/95','dark:bg-green-950','shadow','text-white','border-transparent');
+            nav.classList.remove('bg-white/80','dark:bg-green-950/90','border-gray-200/70','dark:border-green-900/70');
+        } else {
+            nav.classList.remove('bg-emerald-900/95','dark:bg-green-950','shadow','text-white','border-transparent');
+            nav.classList.add('bg-white/80','dark:bg-green-950/90','border-gray-200/70','dark:border-green-900/70');
+        }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeKnob = document.getElementById('dark-mode-knob');
+    const htmlEl = document.documentElement;
+
+    function setDarkMode(enabled) {
+        if (enabled) {
+            htmlEl.classList.add('dark');
+            darkModeKnob.classList.add('translate-x-6');
+            localStorage.setItem('theme','dark');
+        } else {
+            htmlEl.classList.remove('dark');
+            darkModeKnob.classList.remove('translate-x-6');
+            localStorage.setItem('theme','light');
+        }
+    }
+
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            setDarkMode(!htmlEl.classList.contains('dark'));
+        });
+        if (htmlEl.classList.contains('dark')) {
+            darkModeKnob.classList.add('translate-x-6');
+        }
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
