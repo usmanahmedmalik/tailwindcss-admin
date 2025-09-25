@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Programs - European Islamic Forum Netherlands</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Early dark mode -->
+  <script>
+    (function () {
+      const pref = localStorage.getItem('theme');
+      if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <style>
+    .hero-overlay-layer{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.65))}
+    .dark .hero-overlay-layer{background:linear-gradient(to bottom,rgba(3,48,42,.35),rgba(3,48,42,.85))}
+    .filter-active{background:#065f46;color:#fff}
+    .dark .filter-active{background:#0d8a6d}
+    .accordion-content[hidden]{display:none}
+  </style>
+  <!-- Optional direct stylesheet fallback if needed:
+  <link rel="stylesheet" href="/dist/output.css" />
+  -->
+</head>
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<div class="min-h-screen flex flex-col">
+  <!-- Logo Area -->
+  <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./home.html" class="text-xl font-bold tracking-tight">European Islamic Forum Netherlands</a>
+      <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-green-800 transition flex items-center px-1">
+        <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-green-200 rounded-full shadow transform transition"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+      <ul class="flex items-center gap-6 text-sm font-medium">
+        <li><a href="./home.html" class="hover:text-green-700 dark:hover:text-emerald-300">Home</a></li>
+        <li><a href="./about.html" class="hover:text-green-700 dark:hover:text-emerald-300">About</a></li>
+        <li><a href="./programs.html" class="text-green-700 dark:text-emerald-300 font-semibold">Programs</a></li>
+        <li><a href="./home.html#events" class="hover:text-green-700 dark:hover:text-emerald-300">Events</a></li>
+        <li><a href="./home.html#contact" class="hover:text-green-700 dark:hover:text-emerald-300">Contact</a></li>
+      </ul>
+      <a href="/donate" class="hidden sm:inline-block px-4 py-2 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Donate</a>
+    </div>
+  </nav>
+
+  <!-- Filterable Catalog -->
+  <section id="catalog" class="py-20 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+        <div>
+          <h2 class="text-3xl font-bold mb-1">Program Catalog</h2>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/70">Filter by focus area to discover relevant initiatives.</p>
+        </div>
+        <div class="flex flex-wrap gap-2" id="program-filters">
+          <button data-filter="all" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow filter-active">All</button>
+          <button data-filter="education" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Education</button>
+            <button data-filter="youth" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Youth</button>
+          <button data-filter="community" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Community</button>
+          <button data-filter="research" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Research</button>
+          <button data-filter="advisory" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Advisory</button>
+          <button data-filter="outreach" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Outreach</button>
+        </div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="program-grid">
+        <!-- Card -->
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="education">
+          <span class="absolute top-4 right-4 text-[10px] tracking-wide px-2 py-1 rounded bg-green-700 text-white font-semibold">ACTIVE</span>
+          <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Foundations of Qur'anic Literacy</h3>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Progressive modules enhancing reading, tajwīd fundamentals and reflective engagement.</p>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-500 dark:text-emerald-300/60">8-week cycles</span>
+            <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Details</a>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="youth">
+          <span class="absolute top-4 right-4 text-[10px] tracking-wide px-2 py-1 rounded bg-amber-600 text-white font-semibold">NEW</span>
+          <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Youth Leadership Labs</h3>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Experiential micro-labs building ethical decision making & civic literacy.</p>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-500 dark:text-emerald-300/60">Monthly cohorts</span>
+            <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Details</a>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="community">
+          <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Community Wellbeing Circles</h3>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Peer-facilitated safe space for resilience, balance and constructive reflection.</p>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-500 dark:text-emerald-300/60">Bi-weekly</span>
+            <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Details</a>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="research">
+          <span class="absolute top-4 right-4 text-[10px] tracking-wide px-2 py-1 rounded bg-indigo-600 text-white font-semibold">ISSUE</span>
+          <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Policy & Social Insight Briefs</h3>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Concise evidence-informed briefs addressing emergent civic themes.</p>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-500 dark:text-emerald-300/60">Quarterly</span>
+            <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Download</a>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="advisory">
+            <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Community Advisory Desk</h3>
+            <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Structured consultative support on governance, ethics and engagement.</p>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-emerald-300/60">By appointment</span>
+              <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Book</a>
+            </div>
+        </div>
+        <div class="group relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow hover:shadow-lg transition" data-category="outreach">
+          <h3 class="font-semibold mb-2 text-gray-800 dark:text-emerald-200">Interfaith Civic Exchange</h3>
+          <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-4">Structured roundtables promoting cooperation & social responsibility.</p>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-500 dark:text-emerald-300/60">Rotational</span>
+            <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spotlight -->
+  <section class="py-24 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Impact Spotlights</h2>
+        <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-5">Strategic flagship programs illustrating our integrated approach to education, social architecture, and leadership formation.</p>
+        <ul class="space-y-5">
+          <li class="flex gap-4">
+            <div class="w-10 h-10 rounded-lg bg-green-700 flex items-center justify-center text-white text-xs font-semibold">EDU</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Scholarly Pathways Track</h3>
+              <p class="text-xs text-gray-600 dark:text-emerald-300/70">Layered literacy -> comprehension -> thematic synthesis modules.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-600 flex items-center justify-center text-white text-xs font-semibold">YTH</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Applied Leadership Fellowship</h3>
+              <p class="text-xs text-gray-600 dark:text-emerald-300/70">Scenario-driven labs + mentorship + civic design projects.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-xs font-semibold">R&D</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Civic Insight Repository</h3>
+              <p class="text-xs text-gray-600 dark:text-emerald-300/70">Curated briefs bridging research, policy, and community praxis.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="p-8 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800">
+        <h3 class="font-semibold mb-4 text-gray-800 dark:text-emerald-200">Program Metrics</h3>
+        <div class="grid sm:grid-cols-2 gap-8">
+          <div>
+            <div class="text-4xl font-extrabold text-green-700 dark:text-emerald-300 counter" data-target="1200">0</div>
+            <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mt-1">Participant Hours</p>
+          </div>
+          <div>
+            <div class="text-4xl font-extrabold text-green-700 dark:text-emerald-300 counter" data-target="85">0</div>
+            <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mt-1">Active Volunteers</p>
+          </div>
+          <div>
+            <div class="text-4xl font-extrabold text-green-700 dark:text-emerald-300 counter" data-target="36">0</div>
+            <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mt-1">Published Briefs</p>
+          </div>
+          <div>
+            <div class="text-4xl font-extrabold text-green-700 dark:text-emerald-300 counter" data-target="14">0</div>
+            <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-emerald-300/60 mt-1">Partner Orgs</p>
+          </div>
+        </div>
+        <p class="text-[11px] mt-6 text-gray-500 dark:text-emerald-300/50">Figures are cumulative since program restructuring (rolling update).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center">Program Roadmap</h2>
+      <ol class="relative border-l border-gray-300 dark:border-green-800 space-y-10">
+        <li class="ml-6">
+          <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-green-700 ring-4 ring-white dark:ring-green-950"></span>
+          <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q1: Curriculum Consolidation</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Framework mapping + modular sequencing across literacy & leadership tracks.</p>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-amber-600 ring-4 ring-white dark:ring-green-950"></span>
+          <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q2: Digital Resource Launch</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Release micro-learning repository & advisory briefs platform.</p>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-indigo-600 ring-4 ring-white dark:ring-green-950"></span>
+          <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q3: Regional Youth Cohorts</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Scaled leadership labs + civic design projects with mentorship pairing.</p>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-teal-600 ring-4 ring-white dark:ring-green-950"></span>
+          <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q4: Interfaith & Policy Summit</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Strategic convening bridging institutions, research partners & civic actors.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="py-24 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="text-3xl font-bold mb-4">Membership Tiers</h2>
+        <p class="text-sm text-gray-600 dark:text-emerald-300/70">Support sustainable programming & gain structured engagement benefits.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800 flex flex-col">
+          <h3 class="font-semibold text-lg mb-2 text-gray-800 dark:text-emerald-200">Contributor</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-4">Access to newsletters & open workshops.</p>
+          <ul class="text-xs space-y-2 mb-6 text-gray-600 dark:text-emerald-300/70">
+            <li>• Quarterly brief summaries</li>
+            <li>• Event priority notices</li>
+            <li>• Volunteer pathway access</li>
+          </ul>
+          <a href="#" class="mt-auto inline-block text-center px-4 py-2 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Join</a>
+        </div>
+        <div class="relative p-6 rounded-2xl bg-white dark:bg-green-900 border-2 border-green-600 dark:border-emerald-300 flex flex-col shadow-lg">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-green-700 text-white text-[10px] font-semibold tracking-wide">POPULAR</span>
+          <h3 class="font-semibold text-lg mb-2 text-gray-800 dark:text-emerald-200">Builder</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-4">Enhanced engagement & structured workshop track access.</p>
+          <ul class="text-xs space-y-2 mb-6 text-gray-600 dark:text-emerald-300/70">
+            <li>• All Contributor benefits</li>
+            <li>• Leadership lab invites</li>
+            <li>• Early research releases</li>
+            <li>• Advisory Q&A sessions</li>
+          </ul>
+          <a href="#" class="mt-auto inline-block text-center px-4 py-2 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Join</a>
+        </div>
+        <div class="p-6 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800 flex flex-col">
+          <h3 class="font-semibold text-lg mb-2 text-gray-800 dark:text-emerald-200">Partner</h3>
+          <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-4">Strategic collaboration for institutions & networks.</p>
+          <ul class="text-xs space-y-2 mb-6 text-gray-600 dark:text-emerald-300/70">
+            <li>• All Builder benefits</li>
+            <li>• Joint program design</li>
+            <li>• Co-branded initiatives</li>
+            <li>• Custom advisory input</li>
+          </ul>
+          <a href="#" class="mt-auto inline-block text-center px-4 py-2 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center">Program FAQs</h2>
+      <div class="space-y-4" id="faq">
+        <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+          <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+            <span class="font-medium text-sm">How do I enroll in a program?</span>
+            <span class="text-xs opacity-60">+</span>
+          </button>
+          <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+            Browse the catalog, open a program detail view, and submit the registration form. Some require approval or prerequisites.
+          </div>
+        </div>
+        <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+          <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+            <span class="font-medium text-sm">Are scholarships available?</span>
+            <span class="text-xs opacity-60">+</span>
+          </button>
+          <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+            Limited fee support and sponsored seats exist for qualifying participants. Contact the advisory desk for current availability.
+          </div>
+        </div>
+        <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+          <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+            <span class="font-medium text-sm">Can institutions partner?</span>
+            <span class="text-xs opacity-60">+</span>
+          </button>
+          <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+            Yes—partner tier membership unlocks co-designed tracks, shared research output, and collaborative events.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / CTA -->
+  <section class="py-24 bg-gradient-to-br from-green-800 via-green-900 to-green-950 text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-4">Stay Informed</h2>
+      <p class="text-sm md:text-base mb-8 text-green-100">Receive program launch updates, research briefs & volunteer opportunities.</p>
+      <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+        <input type="email" required placeholder="Email address" class="w-full sm:flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/30 placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50" />
+        <button class="px-6 py-3 rounded-md bg-green-600 hover:bg-green-500 font-semibold text-sm">Subscribe</button>
+      </form>
+      <p class="text-[11px] mt-4 text-green-200/70">We respect privacy & data stewardship.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+      <div>
+        <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
+        <p>123 Main Street<br/>City, ST 00000</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2">Links</h4>
+        <ul class="space-y-1">
+          <li><a href="./about.html" class="hover:text-white">About</a></li>
+          <li><a href="./programs.html" class="hover:text-white">Programs</a></li>
+          <li><a href="./home.html#events" class="hover:text-white">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2">Connect</h4>
+        <p>Email: info@masjid.org</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
+  </footer>
+</div>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('mainNav');
+  function handleScroll(){
+    if(window.scrollY>10){
+      nav.classList.add('bg-black','dark:bg-green-950','shadow','text-white');
+      nav.classList.remove('bg-white/90','dark:bg-green-950/90');
+    } else {
+      nav.classList.remove('bg-black','dark:bg-green-950','shadow','text-white');
+      nav.classList.add('bg-white/90','dark:bg-green-950/90');
+    }
+  }
+  window.addEventListener('scroll',handleScroll);
+
+  // Dark mode
+  const darkModeToggle=document.getElementById('dark-mode-toggle');
+  const darkModeKnob=document.getElementById('dark-mode-knob');
+  const htmlEl=document.documentElement;
+  function setDarkMode(on){
+    if(on){htmlEl.classList.add('dark');darkModeKnob.classList.add('translate-x-6');localStorage.setItem('theme','dark');}
+    else{htmlEl.classList.remove('dark');darkModeKnob.classList.remove('translate-x-6');localStorage.setItem('theme','light');}
+  }
+  if(darkModeToggle){
+    darkModeToggle.addEventListener('click',()=>setDarkMode(!htmlEl.classList.contains('dark')));
+    if(htmlEl.classList.contains('dark')) darkModeKnob.classList.add('translate-x-6');
+  }
+
+  // Filters
+  const filterBtns=[...document.querySelectorAll('#program-filters button')];
+  const cards=[...document.querySelectorAll('#program-grid [data-category]')];
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      filterBtns.forEach(b=>b.classList.remove('filter-active'));
+      btn.classList.add('filter-active');
+      const f=btn.dataset.filter;
+      cards.forEach(c=>{
+        c.style.display=(f==='all'||c.dataset.category===f)?'block':'none';
+      });
+    });
+  });
+
+  // Counters
+  const counters=document.querySelectorAll('.counter');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el=entry.target;
+        const target=parseInt(el.dataset.target,10);
+        let current=0;
+        const inc=Math.ceil(target/60);
+        const tick=()=>{current+=inc;if(current>=target){current=target}el.textContent=current; if(current<target) requestAnimationFrame(tick);}
+        tick();
+        observer.unobserve(el);
+      }
+    });
+  },{threshold:.4});
+  counters.forEach(c=>observer.observe(c));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-trigger').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const content=btn.nextElementSibling;
+      const open=!content.hasAttribute('hidden');
+      document.querySelectorAll('#faq .accordion-content').forEach(c=>c.setAttribute('hidden',''));
+      if(!open) content.removeAttribute('hidden');
+    });
+  });
+
+  // Footer year
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<!-- Added: load Tailwind + global styles via Vite entry (same as home/about) -->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

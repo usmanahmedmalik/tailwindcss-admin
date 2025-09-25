@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Events - European Islamic Forum Netherlands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Early dark mode -->
+    <script>
+        (function () {
+            const pref = localStorage.getItem('theme');
+            if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+    <!-- Assume Tailwind & global styles already loaded elsewhere -->
+    <style>
+      /* Removed old .dark .hero-green-layer rule */
+      .hero-overlay-layer {
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      }
+      .dark .hero-overlay-layer {
+        background:
+          linear-gradient(to bottom, rgba(3,48,42,0.25), rgba(3,48,42,0.75)),
+          radial-gradient(circle at 40% 40%, rgba(10,97,84,0.25), rgba(3,48,42,0.55));
+      }
+      .countdown-item{min-width:70px}
+      .filter-active{background:#065f46;color:#fff}
+      .dark .filter-active{background:#0d8a6d}
+      .event-card{transition:box-shadow .25s,transform .25s}
+      .event-card:hover{box-shadow:0 8px 30px -10px rgba(0,0,0,.25);transform:translateY(-3px)}
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<div class="min-h-screen flex flex-col">
+    <!-- Logo Area -->
+    <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight">European Islamic Forum Netherlands</span>
+            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-green-800 transition flex items-center px-1">
+                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-green-200 rounded-full shadow transform transition"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="./home.html" class="hover:text-green-700 dark:hover:text-emerald-300">Home</a></li>
+                <li><a href="./about.html" class="hover:text-green-700 dark:hover:text-emerald-300">About</a></li>
+                <li><a href="./programs.html" class="hover:text-green-700 dark:hover:text-emerald-300">Programs</a></li>
+                <li><a href="./events.html" class="text-green-700 dark:text-emerald-300 font-semibold">Events</a></li>
+                <li><a href="./contact.html" class="hover:text-green-700 dark:hover:text-emerald-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-[320px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/main-banner.png')"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 dark:from-green-950/30 dark:to-green-950/80"></div>
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Events & Gatherings</h1>
+            <p class="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">Conferences, educational forums, leadership labs, retreats & community engagements across the year.</p>
+        </div>
+    </section>
+
+    <!-- Featured Event with Countdown -->
+    <section class="py-20 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Featured: Annual Civic & Leadership Summit</h2>
+                <p class="text-sm text-gray-600 dark:text-emerald-300/80 mb-5">
+                    A strategic convening uniting educators, youth facilitators, researchers, chaplains and civic contributors to chart collaborative impact pathways.
+                </p>
+                <ul class="text-xs space-y-2 text-gray-500 dark:text-emerald-300/60 mb-6">
+                    <li><strong class="text-gray-700 dark:text-emerald-200 font-semibold">Theme:</strong> Constructive Presence & Ethical Contribution</li>
+                    <li><strong class="text-gray-700 dark:text-emerald-200 font-semibold">Format:</strong> Keynotes, labs, advisory roundtables, cohort networking</li>
+                    <li><strong class="text-gray-700 dark:text-emerald-200 font-semibold">Location:</strong> Rotterdam (Hybrid stream enabled)</li>
+                </ul>
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <span class="px-3 py-1 rounded-full bg-green-700 text-white text-[10px] tracking-wide font-semibold">REGISTRATION OPEN</span>
+                    <span class="px-3 py-1 rounded-full bg-amber-600 text-white text-[10px] tracking-wide font-semibold">LIMITED SEATS</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#register" class="px-6 py-3 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Register Now</a>
+                    <a href="#agenda" class="px-6 py-3 rounded-md bg-white dark:bg-green-950 border border-gray-200 dark:border-green-700 text-sm font-semibold hover:bg-gray-50 dark:hover:bg-green-900">View Agenda</a>
+                </div>
+            </div>
+            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800">
+                <h3 class="font-semibold mb-5 text-gray-800 dark:text-emerald-200">Starts In</h3>
+                <div id="summit-countdown" data-start="2025-03-15T09:00:00Z" class="flex gap-4 sm:gap-6">
+                    <div class="countdown-item text-center">
+                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="days">--</div>
+                        <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Days</div>
+                    </div>
+                    <div class="countdown-item text-center">
+                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="hours">--</div>
+                        <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Hours</div>
+                    </div>
+                    <div class="countdown-item text-center">
+                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="minutes">--</div>
+                        <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Minutes</div>
+                    </div>
+                    <div class="countdown-item text-center">
+                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="seconds">--</div>
+                        <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Seconds</div>
+                    </div>
+                </div>
+                <p class="text-[11px] mt-6 text-gray-500 dark:text-emerald-300/50">Automatic timezone adjustment based on your device.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filters + Event Grid -->
+    <section class="py-20 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Upcoming & Ongoing</h2>
+                    <p class="text-sm text-gray-600 dark:text-emerald-300/70">Filter by type to locate relevant engagements.</p>
+                </div>
+                <div id="event-filters" class="flex flex-wrap gap-2">
+                    <button data-filter="all" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow filter-active">All</button>
+                    <button data-filter="conference" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Conference</button>
+                    <button data-filter="training" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Training</button>
+                    <button data-filter="youth" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Youth</button>
+                    <button data-filter="community" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Community</button>
+                    <button data-filter="research" class="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800 shadow">Research</button>
+                </div>
+            </div>
+
+            <div id="event-grid" class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Event Card -->
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="conference">
+                    <div class="absolute top-4 right-4 text-[10px] px-2 py-1 rounded bg-green-700 text-white font-semibold tracking-wide">OPEN</div>
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">15</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Mar</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Civic & Leadership Summit</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Multi-track sessions on governance, youth formation & ethical frameworks.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Rotterdam / Hybrid</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Details</a>
+                    </div>
+                </article>
+
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="training">
+                    <div class="absolute top-4 right-4 text-[10px] px-2 py-1 rounded bg-amber-600 text-white font-semibold tracking-wide">NEW</div>
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">02</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Apr</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Facilitator Methodology Lab</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Instructional design micro-sprints for workshop quality elevation.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Hybrid</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Enroll</a>
+                    </div>
+                </article>
+
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="youth">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">20</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Apr</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Regional Youth Retreat</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Immersive weekend: reflection, mentorship & team challenge modules.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Outdoor Venue</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Apply</a>
+                    </div>
+                </article>
+
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="community">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">07</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">May</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Community Wellbeing Forum</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Dialogue sessions on resilience, mental health & compassionate service.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Rotterdam</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">RSVP</a>
+                    </div>
+                </article>
+
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="research">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">19</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">May</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Insight Brief Release #06</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Analytical focus on youth civic participation & institutional trust factors.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Digital</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Download</a>
+                    </div>
+                </article>
+
+                <article class="event-card relative p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800" data-category="conference">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-green-700 dark:text-emerald-300 leading-none">08</div>
+                            <div class="text-[11px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Jun</div>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Interfaith Civic Exchange</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Structured panels with multi-faith stakeholders on shared social priorities.</p>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-gray-500 dark:text-emerald-300/60">Hybrid</span>
+                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Register</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap / Timeline -->
+    <section class="py-24 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-10 text-center">Annual Event Flow</h2>
+            <ol class="relative border-l border-gray-300 dark:border-green-800 space-y-10">
+                <li class="ml-6">
+                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-green-700 ring-4 ring-white dark:ring-green-900"></span>
+                    <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q1: Foundational Workshops</h3>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Skill formation & structural planning intensives.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-amber-600 ring-4 ring-white dark:ring-green-900"></span>
+                    <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q2: Scaling Interventions</h3>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Youth labs expansion + advisory series publication cadence.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-indigo-600 ring-4 ring-white dark:ring-green-900"></span>
+                    <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q3: Immersive Retreats</h3>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Transformational cohort intensives & regional network weaving.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-teal-600 ring-4 ring-white dark:ring-green-900"></span>
+                    <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q4: Summit & Strategic Review</h3>
+                    <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Integrative reflection + forward design mapping.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-24 bg-gradient-to-br from-green-800 via-green-900 to-green-950 text-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-sm md:text-base mb-8 text-green-100">Receive event launch alerts, participation windows & briefing releases.</p>
+            <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+                <input type="email" required placeholder="Email address" class="w-full sm:flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/30 placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50">
+                <button class="px-6 py-3 rounded-md bg-green-600 hover:bg-green-500 font-semibold text-sm">Subscribe</button>
+            </form>
+            <p class="text-[11px] mt-4 text-green-200/70">Respecting privacy & compliant data stewardship.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+            <div>
+                <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
+                <p>123 Main Street<br/>City, ST 00000</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Links</h4>
+                <ul class="space-y-1">
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#programs" class="hover:text-white">Programs</a></li>
+                    <li><a href="#events" class="hover:text-white">Events</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Connect</h4>
+                <p>Email: info@masjid.org</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
+    </footer>
+</div>
+
+<script type="module">
+    // Sticky nav (unchanged)
+    // ...existing code...
+    // Extend existing handleScroll if present else define:
+    const nav = document.getElementById('mainNav');
+    function handleScroll() {
+        if (window.scrollY > 10) {
+            nav.classList.add('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.remove('bg-white/90','dark:bg-green-950/90');
+        } else {
+            nav.classList.remove('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.add('bg-white/90','dark:bg-green-950/90');
+        }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    // Dark mode (unchanged)
+    // ...existing code...
+
+    // Countdown
+    const cdWrap = document.getElementById('summit-countdown');
+    if (cdWrap) {
+        const startDate = new Date(cdWrap.dataset.start);
+        function tick() {
+            const now = new Date();
+            let diff = startDate - now;
+            if (diff < 0) diff = 0;
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor(diff / 3600000) % 24;
+            const m = Math.floor(diff / 60000) % 60;
+            const s = Math.floor(diff / 1000) % 60;
+            cdWrap.querySelector('[data-unit="days"]').textContent = d;
+            cdWrap.querySelector('[data-unit="hours"]').textContent = h.toString().padStart(2,'0');
+            cdWrap.querySelector('[data-unit="minutes"]').textContent = m.toString().padStart(2,'0');
+            cdWrap.querySelector('[data-unit="seconds"]').textContent = s.toString().padStart(2,'0');
+        }
+        tick(); setInterval(tick,1000);
+    }
+
+    // Event Filters
+    const filterBtns = [...document.querySelectorAll('#event-filters button')];
+    const eventCards = [...document.querySelectorAll('#event-grid [data-category]')];
+    filterBtns.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            filterBtns.forEach(b=>b.classList.remove('filter-active'));
+            btn.classList.add('filter-active');
+            const f = btn.dataset.filter;
+            eventCards.forEach(card=>{
+                card.style.display = (f==='all'||card.dataset.category===f)?'block':'none';
+            });
+        });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dark mode toggle (reuse if absent)
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeKnob = document.getElementById('dark-mode-knob');
+    const htmlEl = document.documentElement;
+    function setDarkMode(enabled){
+        if(enabled){htmlEl.classList.add('dark');darkModeKnob?.classList.add('translate-x-6');localStorage.setItem('theme','dark');}
+        else{htmlEl.classList.remove('dark');darkModeKnob?.classList.remove('translate-x-6');localStorage.setItem('theme','light');}
+    }
+    darkModeToggle?.addEventListener('click',()=>setDarkMode(!htmlEl.classList.contains('dark')));
+    if(htmlEl.classList.contains('dark')) darkModeKnob?.classList.add('translate-x-6');
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

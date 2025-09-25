@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact - European Islamic Forum Netherlands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Early dark mode -->
+    <script>
+        (function () {
+            const pref = localStorage.getItem('theme');
+            if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+    <!-- Assume Tailwind & global styles already loaded elsewhere -->
+    <style>
+      /* Removed old .dark .hero-green-layer rule */
+      .hero-overlay-layer {
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      }
+      .dark .hero-overlay-layer {
+        background:
+          linear-gradient(to bottom, rgba(3,48,42,0.25), rgba(3,48,42,0.75)),
+          radial-gradient(circle at 40% 40%, rgba(10,97,84,0.25), rgba(3,48,42,0.55));
+      }
+      .accordion-content[hidden]{display:none}
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<div class="min-h-screen flex flex-col">
+    <!-- Logo Area -->
+    <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight">European Islamic Forum Netherlands</span>
+            <button id="dark-mode-toggle" class="relative w-12 h-6 rounded-full bg-gray-300 dark:bg-green-800 transition flex items-center px-1">
+                <span id="dark-mode-knob" class="w-4 h-4 bg-white dark:bg-green-200 rounded-full shadow transform transition"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+            <ul class="flex items-center gap-6 text-sm font-medium">
+                <li><a href="./home.html" class="hover:text-green-700 dark:hover:text-emerald-300">Home</a></li>
+                <li><a href="./about.html" class="hover:text-green-700 dark:hover:text-emerald-300">About</a></li>
+                <li><a href="./programs.html" class="hover:text-green-700 dark:hover:text-emerald-300">Programs</a></li>
+                <li><a href="./events.html" class="hover:text-green-700 dark:hover:text-emerald-300">Events</a></li>
+                <li><a href="./contact.html" class="text-green-700 dark:text-emerald-300 font-semibold">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-[280px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/main-banner.png')"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 dark:from-green-950/30 dark:to-green-950/80"></div>
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl font-bold text-white mb-3">Get in Touch</h1>
+            <p class="text-sm md:text-base text-gray-200 max-w-xl mx-auto">Questions, partnerships, program interest or support inquiries—we are here to respond constructively.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Grid -->
+    <section class="py-16 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div class="p-6 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800">
+                <h3 class="font-semibold text-gray-800 dark:text-emerald-200 mb-2">General</h3>
+                <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-3">For standard inquiries & information.</p>
+                <a href="mailto:info@masjid.org" class="text-sm font-medium text-green-700 dark:text-emerald-300 hover:underline">info@masjid.org</a>
+            </div>
+            <div class="p-6 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800">
+                <h3 class="font-semibold text-gray-800 dark:text-emerald-200 mb-2">Programs</h3>
+                <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-3">Enrollment & curriculum questions.</p>
+                <a href="mailto:programs@masjid.org" class="text-sm font-medium text-green-700 dark:text-emerald-300 hover:underline">programs@masjid.org</a>
+            </div>
+            <div class="p-6 rounded-xl bg-gray-50 dark:bg-green-950 border border-gray-200 dark:border-green-800">
+                <h3 class="font-semibold text-gray-800 dark:text-emerald-200 mb-2">Partnerships</h3>
+                <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-3">Collaborations & strategic initiatives.</p>
+                <a href="mailto:partners@masjid.org" class="text-sm font-medium text-green-700 dark:text-emerald-300 hover:underline">partners@masjid.org</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form + Map -->
+    <section class="py-20 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-start">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Send a Message</h2>
+                <p class="text-sm text-gray-600 dark:text-emerald-300/70 mb-8">We aim to respond within 2–3 business days. Provide clear context to streamline reply quality.</p>
+                <form id="contact-form" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-medium mb-1 text-gray-700 dark:text-emerald-200">Full Name</label>
+                        <input required name="name" class="w-full px-4 py-3 rounded-md bg-white dark:bg-green-900 border border-gray-300 dark:border-green-800 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-medium mb-1 text-gray-700 dark:text-emerald-200">Email</label>
+                            <input required type="email" name="email" class="w-full px-4 py-3 rounded-md bg-white dark:bg-green-900 border border-gray-300 dark:border-green-800 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium mb-1 text-gray-700 dark:text-emerald-200">Subject</label>
+                            <input required name="subject" class="w-full px-4 py-3 rounded-md bg-white dark:bg-green-900 border border-gray-300 dark:border-green-800 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium mb-1 text-gray-700 dark:text-emerald-200">Message</label>
+                        <textarea required rows="5" name="message" class="w-full px-4 py-3 rounded-md bg-white dark:bg-green-900 border border-gray-300 dark:border-green-800 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="submit" class="px-6 py-3 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Send</button>
+                        <span id="form-status" class="text-xs text-gray-500 dark:text-emerald-300/60"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="space-y-8">
+                <div class="aspect-video w-full rounded-xl bg-gray-200 dark:bg-green-900 flex items-center justify-center text-gray-500 dark:text-emerald-300 text-xs">
+                    Map / Location Placeholder
+                </div>
+                <div class="p-6 rounded-xl bg-white dark:bg-green-900 border border-gray-200 dark:border-green-800">
+                    <h3 class="font-semibold text-gray-800 dark:text-emerald-200 mb-3">Office Hours</h3>
+                    <ul class="text-xs space-y-1 text-gray-600 dark:text-emerald-300/70">
+                        <li>Mon–Thu: 09:30 – 17:30 CET</li>
+                        <li>Friday: 09:30 – 15:00 CET</li>
+                        <li>Weekends: Program dependent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white dark:bg-green-900 border-t border-gray-200 dark:border-green-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-10 text-center">Frequently Asked</h2>
+            <div class="space-y-4" id="faq">
+                <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+                    <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+                        <span class="font-medium text-sm">How soon will I get a response?</span>
+                        <span class="text-xs opacity-60">+</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+                        Typical turnaround is 2–3 business days; complex program or partnership inquiries may require more time.
+                    </div>
+                </div>
+                <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+                    <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+                        <span class="font-medium text-sm">Do you offer onsite visits?</span>
+                        <span class="text-xs opacity-60">+</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+                        Yes—by appointment. Educational groups, researchers and partner organizations can request structured visits.
+                    </div>
+                </div>
+                <div class="rounded-lg border border-gray-200 dark:border-green-800 overflow-hidden">
+                    <button class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-green-900/60 faq-trigger">
+                        <span class="font-medium text-sm">How can I volunteer?</span>
+                        <span class="text-xs opacity-60">+</span>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 pt-1 text-xs text-gray-600 dark:text-emerald-300/70" hidden>
+                        Submit a volunteer interest form (Programs > Youth / Community). You’ll receive a pathway orientation email.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social / CTA -->
+    <section class="py-20 bg-gradient-to-br from-green-800 via-green-900 to-green-950 text-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Connect & Contribute</h2>
+            <p class="text-sm md:text-base mb-8 text-green-100">Follow updates, amplify initiatives & co-create meaningful outcomes.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <a href="#" class="px-5 py-3 rounded-md bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20">Twitter</a>
+                <a href="#" class="px-5 py-3 rounded-md bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20">LinkedIn</a>
+                <a href="#" class="px-5 py-3 rounded-md bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20">YouTube</a>
+                <a href="#" class="px-5 py-3 rounded-md bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20">Instagram</a>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/donate" class="px-8 py-3 rounded-md bg-green-600 hover:bg-green-500 font-semibold text-sm">Donate</a>
+                <a href="/volunteer" class="px-8 py-3 rounded-md bg-white/10 border border-white/30 font-semibold text-sm hover:bg-white/20 backdrop-blur">Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+            <div>
+                <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
+                <p>123 Main Street<br/>City, ST 00000</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Links</h4>
+                <ul class="space-y-1">
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#programs" class="hover:text-white">Programs</a></li>
+                    <li><a href="#events" class="hover:text-white">Events</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-2">Connect</h4>
+                <p>Email: info@masjid.org</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
+    </footer>
+</div>
+
+<script type="module">
+    // Sticky nav
+    const nav = document.getElementById('mainNav');
+    function handleScroll() {
+        if (window.scrollY > 10) {
+            nav.classList.add('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.remove('bg-white/90','dark:bg-green-950/90');
+        } else {
+            nav.classList.remove('bg-black','dark:bg-green-950','shadow','text-white');
+            nav.classList.add('bg-white/90','dark:bg-green-950/90');
+        }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    // Dark mode
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeKnob = document.getElementById('dark-mode-knob');
+    const htmlEl = document.documentElement;
+    function setDarkMode(on){
+        if(on){htmlEl.classList.add('dark');darkModeKnob.classList.add('translate-x-6');localStorage.setItem('theme','dark');}
+        else{htmlEl.classList.remove('dark');darkModeKnob.classList.remove('translate-x-6');localStorage.setItem('theme','light');}
+    }
+    darkModeToggle?.addEventListener('click',()=>setDarkMode(!htmlEl.classList.contains('dark')));
+    if(htmlEl.classList.contains('dark')) darkModeKnob?.classList.add('translate-x-6');
+
+    // Contact form (demo only)
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    form?.addEventListener('submit', e=>{
+        e.preventDefault();
+        statusEl.textContent = 'Sending...';
+        setTimeout(()=>{
+            statusEl.textContent = 'Message sent successfully (demo).';
+            form.reset();
+        },1000);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            const c = btn.nextElementSibling;
+            const open = !c.hasAttribute('hidden');
+            document.querySelectorAll('#faq .accordion-content').forEach(x=>x.setAttribute('hidden',''));
+            if(!open) c.removeAttribute('hidden');
+        });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
