@@ -26,7 +26,7 @@ Most existing templates try to be everything to everyone, which can make them ha
 - **`order-success.html` – Confirmation state**: Displays a thank-you message, order metadata, fulfillment timeline, and helpful next steps after checkout completes.
 - **`login.html` – Authentication (sign in)**: Presents a compact login form with username/password fields and built-in dark-mode toggle.
 - **`registration.html` – Authentication (sign up)**: Mirrors the login layout with fields for account creation, including email and password confirmation, plus dark-mode support.
-
+- **'home.html' - Home page template for religious organisation
 ## Getting Started
 
 1. Clone this repo
