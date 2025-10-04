@@ -15,29 +15,177 @@
     </script>
     <!-- Assume Tailwind & global styles already loaded elsewhere -->
     <style>
-      /* Removed old .dark .hero-green-layer rule */
-      .hero-overlay-layer {
-        position:absolute;
-        inset:0;
-        background:
-          linear-gradient(to bottom, rgba(0,0,0,0.22), rgba(0,0,0,0.70)),
-          radial-gradient(circle at 38% 38%, rgba(184,155,94,0.28), rgba(0,0,0,0.55));
+      :root {
+        --beige-accent:#b89b5e;
+        --beige-accent-strong:#9b7a35;
+        --beige-bg-soft:#f5efe3;
+        --beige-bg:#faf7f0;
       }
+      .dark {
+        --beige-accent:#d7bd86;
+        --beige-accent-strong:#e5c274;
+        --beige-bg-soft:#2b251d;
+        --beige-bg:#332c23;
+      }
+      /* Hero overlay (unchanged base) */
+      .hero-overlay-layer{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65))}
       .dark .hero-overlay-layer {
         background:
-          linear-gradient(to bottom, rgba(51,44,35,0.35), rgba(43,37,29,0.85)),
-          radial-gradient(circle at 40% 40%, rgba(155,122,53,0.38), rgba(43,37,29,0.70));
+          linear-gradient(to bottom, rgba(70,56,34,0.25), rgba(46,37,23,0.78)),
+          radial-gradient(circle at 40% 40%, rgba(155,122,53,0.28), rgba(60,48,30,0.55));
       }
-      :root { --beige-accent:#b89b5e; --beige-accent-strong:#9b7a35; }
-      .dark { --beige-accent:#d7bd86; --beige-accent-strong:#e5c274; }
-      .countdown-item{min-width:70px}
+
+      /* Filters */
       .filter-active{background:var(--beige-accent-strong);color:#fff}
       .dark .filter-active{background:var(--beige-accent);color:#332c23}
+
+      /* Surfaces */
+      .dark .bg-green-900{background:#332c23!important;}
+      .dark .bg-green-950{background:#2b251d!important;}
+      .dark .border-green-800,
+      .dark .border-green-900{border-color:#4a4033!important;}
+      .dark .ring-green-900{--tw-ring-color:#2b251d!important;}
+
+      /* Accent buttons / badges */
+      .bg-green-700,
+      .bg-green-600{background:var(--beige-accent-strong)!important;}
+      .hover\:bg-green-600:hover,
+      .hover\:bg-green-500:hover{background:var(--beige-accent)!important;}
+      .text-green-700,
+      .text-green-600{color:var(--beige-accent-strong)!important;}
+      .text-green-100,
+      .text-green-200,
+      .text-green-300{color:var(--beige-accent)!important;}
+      .ring-green-900,
+      .dark\:ring-green-900{--tw-ring-color:var(--beige-accent-strong)!important;}
+      .dark .text-emerald-200,
+      .dark .text-emerald-300,
+      .dark .text-emerald-300\/80,
+      .dark .text-emerald-300\/70,
+      .dark .text-emerald-300\/60,
+      .dark .text-emerald-300\/50{color:var(--beige-accent)!important;opacity:1!important;}
+
+      .focus\:ring-green-600:focus{--tw-ring-color:var(--beige-accent)!important;}
       .event-card{transition:box-shadow .25s,transform .25s}
       .event-card:hover{box-shadow:0 8px 30px -10px rgba(0,0,0,.25);transform:translateY(-3px)}
+
+      /* === Beige Theme Full Surface Overrides (scoped) === */
+      .beige-theme {
+        --surface-base: var(--beige-bg);
+        --surface-alt: var(--beige-bg-soft);
+        --surface-dark-base:#332c23;
+        --surface-dark-alt:#2b251d;
+        --border-light:#e2d7c3;
+        --border-dark:#4a4033;
+      }
+      .beige-theme .bg-white{background:var(--surface-base)!important;}
+      .beige-theme .bg-gray-50{background:var(--surface-alt)!important;}
+      .dark.beige-theme .bg-white{background:var(--surface-dark-base)!important;}
+      .dark.beige-theme .bg-gray-50{background:var(--surface-dark-alt)!important;}
+      .dark.beige-theme .bg-green-900{background:var(--surface-dark-base)!important;}
+      .dark.beige-theme .bg-green-950{background:var(--surface-dark-alt)!important;}
+
+      .beige-theme .border-gray-200,
+      .beige-theme .border-gray-300{border-color:var(--border-light)!important;}
+      .dark.beige-theme .border-gray-200,
+      .dark.beige-theme .border-gray-300,
+      .dark.beige-theme .dark\:border-green-800,
+      .dark.beige-theme .dark\:border-green-900{border-color:var(--border-dark)!important;}
+
+      .beige-theme .text-green-700,
+      .beige-theme .text-green-600{color:var(--beige-accent-strong)!important;}
+      .dark.beige-theme .text-green-700,
+      .dark.beige-theme .text-green-600{color:var(--beige-accent)!important;}
+      .dark.beige-theme .text-emerald-200,
+      .dark.beige-theme .text-emerald-300,
+      .dark.beige-theme [class*="text-emerald-300/"]{color:var(--beige-accent)!important;opacity:1!important;}
+
+      .beige-theme .bg-green-700,
+      .beige-theme .bg-green-600{background:var(--beige-accent-strong)!important;}
+      .beige-theme .hover\:bg-green-600:hover,
+      .beige-theme .hover\:bg-green-500:hover{background:var(--beige-accent)!important;}
+
+      .beige-theme .focus\:ring-green-600:focus{--tw-ring-color:var(--beige-accent)!important;}
+      .beige-theme a.text-green-700,
+      .beige-theme a.text-green-600{color:var(--beige-accent-strong)!important;}
+      .dark.beige-theme a.text-green-700,
+      .dark.beige-theme a.text-green-600{color:var(--beige-accent)!important;}
+
+      /* Countdown numerals */
+      .beige-theme #summit-countdown .text-green-700{color:var(--beige-accent-strong)!important;}
+      .dark.beige-theme #summit-countdown .text-green-700{color:var(--beige-accent)!important;}
+
+      /* Event card status OPEN badge */
+      .beige-theme .event-card .bg-green-700{background:var(--beige-accent-strong)!important;}
+
+      /* Timeline first dot */
+      .beige-theme .border-l .bg-[var(--beige-accent)]{background:var(--beige-accent-strong)!important;}
+
+      /* === Beige Font Takeover === */
+      body.beige-fonts,
+      body.beige-fonts :where(h1,h2,h3,h4,h5,h6,p,span,a,li,dt,dd,small,strong,em,button,div,summary,label,figcaption,blockquote,code) {
+        color: var(--beige-accent-strong) !important;
+      }
+      .dark.beige-fonts,
+      .dark.beige-fonts :where(h1,h2,h3,h4,h5,h6,p,span,a,li,dt,dd,small,strong,em,button,div,summary,label,figcaption,blockquote,code) {
+        color: var(--beige-accent) !important;
+      }
+      /* Ensure interactive states also inherit beige */
+      body.beige-fonts a:hover,
+      .dark.beige-fonts a:hover { color: var(--beige-accent-strong) !important; }
+      .dark.beige-fonts a:hover { color: var(--beige-accent) !important; }
+
+      /* Explicit overrides for common Tailwind text utility classes previously used */
+      body.beige-fonts .text-white,
+      body.beige-fonts .text-gray-50,
+      body.beige-fonts .text-gray-100,
+      body.beige-fonts .text-gray-200,
+      body.beige-fonts .text-gray-300,
+      body.beige-fonts .text-gray-400,
+      body.beige-fonts .text-gray-500,
+      body.beige-fonts .text-gray-600,
+      body.beige-fonts .text-gray-700,
+      body.beige-fonts .text-gray-800,
+      body.beige-fonts .text-gray-900,
+      body.beige-fonts .text-green-700,
+      body.beige-fonts .text-green-600,
+      body.beige-fonts .text-green-500,
+      body.beige-fonts .text-emerald-200,
+      body.beige-fonts .text-emerald-300,
+      body.beige-fonts [class*="text-emerald-300/"],
+      body.beige-fonts [class*="text-green-"],
+      .dark.beige-fonts .text-white,
+      .dark.beige-fonts .text-gray-50,
+      .dark.beige-fonts .text-gray-100,
+      .dark.beige-fonts .text-gray-200,
+      .dark.beige-fonts .text-gray-300,
+      .dark.beige-fonts .text-gray-400,
+      .dark.beige-fonts .text-gray-500,
+      .dark.beige-fonts .text-gray-600,
+      .dark.beige-fonts .text-gray-700,
+      .dark.beige-fonts .text-gray-800,
+      .dark.beige-fonts .text-gray-900,
+      .dark.beige-fonts .text-green-700,
+      .dark.beige-fonts .text-green-600,
+      .dark.beige-fonts .text-green-500,
+      .dark.beige-fonts .text-emerald-200,
+      .dark.beige-fonts .text-emerald-300,
+      .dark.beige-fonts [class*="text-emerald-300/"],
+      .dark.beige-fonts [class*="text-green-"] {
+        color: inherit !important;
+      }
+
+      /* Countdown labels & badge text inherit */
+      body.beige-fonts .countdown-item div,
+      body.beige-fonts .countdown-item .text-[10px] { color: inherit !important; }
+
+      /* Keep background badges readable; only text changes */
+      body.beige-fonts .bg-amber-600,
+      body.beige-fonts .bg-indigo-600,
+      body.beige-fonts .bg-teal-600 { color:#fff !important; }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<body class="bg-gray-100 dark:bg-[#2b251d] text-gray-800 dark:text-[#e8dcc7] scroll-smooth beige-theme beige-fonts">
 <div class="min-h-screen flex flex-col">
     <!-- Logo Area -->
     <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
@@ -50,14 +198,14 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+    <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-[#2b251d]/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
             <ul class="flex items-center gap-6 text-sm font-medium">
-                <li><a href="./home.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Home</a></li>
-                <li><a href="./about.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">About</a></li>
-                <li><a href="./programs.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Programs</a></li>
-                <li><a href="./events.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)] font-semibold">Events</a></li>
-                <li><a href="./contact.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Contact</a></li>
+                <li><a href="/home-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Home</a></li>
+                <li><a href="/about-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">About</a></li>
+                <li><a href="/programs-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Programs</a></li>
+                <li><a href="/events-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)] font-semibold">Events</a></li>
+                <li><a href="/contact-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -86,8 +234,9 @@
                     <li><strong class="text-gray-700 dark:text-emerald-200 font-semibold">Format:</strong> Keynotes, labs, advisory roundtables, cohort networking</li>
                     <li><strong class="text-gray-700 dark:text-emerald-200 font-semibold">Location:</strong> Rotterdam (Hybrid stream enabled)</li>
                 </ul>
+                <!-- Featured Event badges/buttons -->
                 <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="px-3 py-1 rounded-full bg-green-700 text-white text-[10px] tracking-wide font-semibold">REGISTRATION OPEN</span>
+                    <span class="px-3 py-1 rounded-full bg-[var(--beige-accent-strong)] text-white text-[10px] tracking-wide font-semibold">REGISTRATION OPEN</span>
                     <span class="px-3 py-1 rounded-full bg-amber-600 text-white text-[10px] tracking-wide font-semibold">LIMITED SEATS</span>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4">
@@ -99,19 +248,20 @@
                 <h3 class="font-semibold mb-5 text-gray-800 dark:text-emerald-200">Starts In</h3>
                 <div id="summit-countdown" data-start="2025-03-15T09:00:00Z" class="flex gap-4 sm:gap-6">
                     <div class="countdown-item text-center">
-                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="days">--</div>
+                        <!-- Countdown numbers -->
+                        <div class="text-3xl font-bold text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)]" data-unit="days">--</div>
                         <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Days</div>
                     </div>
                     <div class="countdown-item text-center">
-                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="hours">--</div>
+                        <div class="text-3xl font-bold text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)]" data-unit="hours">--</div>
                         <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Hours</div>
                     </div>
                     <div class="countdown-item text-center">
-                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="minutes">--</div>
+                        <div class="text-3xl font-bold text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)]" data-unit="minutes">--</div>
                         <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Minutes</div>
                     </div>
                     <div class="countdown-item text-center">
-                        <div class="text-3xl font-bold text-green-700 dark:text-emerald-300" data-unit="seconds">--</div>
+                        <div class="text-3xl font-bold text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)]" data-unit="seconds">--</div>
                         <div class="text-[10px] uppercase tracking-wide text-gray-500 dark:text-emerald-300/60">Seconds</div>
                     </div>
                 </div>
@@ -152,7 +302,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Multi-track sessions on governance, youth formation & ethical frameworks.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Rotterdam / Hybrid</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Details</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">Details</a>
                     </div>
                 </article>
 
@@ -168,7 +319,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Instructional design micro-sprints for workshop quality elevation.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Hybrid</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Enroll</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">Enroll</a>
                     </div>
                 </article>
 
@@ -183,7 +335,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Immersive weekend: reflection, mentorship & team challenge modules.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Outdoor Venue</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Apply</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">Apply</a>
                     </div>
                 </article>
 
@@ -198,7 +351,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Dialogue sessions on resilience, mental health & compassionate service.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Rotterdam</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">RSVP</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">RSVP</a>
                     </div>
                 </article>
 
@@ -213,7 +367,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Analytical focus on youth civic participation & institutional trust factors.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Digital</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Download</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">Download</a>
                     </div>
                 </article>
 
@@ -228,7 +383,8 @@
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mb-5">Structured panels with multi-faith stakeholders on shared social priorities.</p>
                     <div class="flex items-center justify-between text-[11px]">
                         <span class="text-gray-500 dark:text-emerald-300/60">Hybrid</span>
-                        <a href="#" class="text-green-700 dark:text-emerald-300 font-semibold hover:underline">Register</a>
+                        <!-- Event card links -->
+                        <a href="#" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] font-semibold hover:underline">Register</a>
                     </div>
                 </article>
             </div>
@@ -241,7 +397,7 @@
             <h2 class="text-2xl font-bold mb-10 text-center">Annual Event Flow</h2>
             <ol class="relative border-l border-gray-300 dark:border-green-800 space-y-10">
                 <li class="ml-6">
-                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-green-700 ring-4 ring-white dark:ring-green-900"></span>
+                    <span class="absolute -left-[10px] top-1 w-5 h-5 rounded-full bg-[var(--beige-accent)] ring-4 ring-white dark:ring-[#2b251d]"></span>
                     <h3 class="font-semibold text-gray-800 dark:text-emerald-200">Q1: Foundational Workshops</h3>
                     <p class="text-xs text-gray-600 dark:text-emerald-300/70 mt-1">Skill formation & structural planning intensives.</p>
                 </li>
@@ -265,20 +421,21 @@
     </section>
 
     <!-- Newsletter CTA -->
-    <section class="py-24 bg-gradient-to-br from-green-800 via-green-900 to-green-950 text-white text-center">
+    <section class="py-24 bg-gradient-to-br from-[#dccfb7] via-[#cdbb9d] to-[#b89b5e] text-[#3b2f1e] dark:text-[#e8dcc7] text-center">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
             <p class="text-sm md:text-base mb-8 text-green-100">Receive event launch alerts, participation windows & briefing releases.</p>
             <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
                 <input type="email" required placeholder="Email address" class="w-full sm:flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/30 placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50">
-                <button class="px-6 py-3 rounded-md bg-green-600 hover:bg-green-500 font-semibold text-sm">Subscribe</button>
+                <!-- Newsletter CTA button -->
+                <button class="px-6 py-3 rounded-md bg-[var(--beige-accent-strong)] hover:bg-[var(--beige-accent)] font-semibold text-sm text-white">Subscribe</button>
             </form>
             <p class="text-[11px] mt-4 text-green-200/70">Respecting privacy & compliant data stewardship.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 dark:bg-green-950 text-gray-400 text-sm">
+    <footer class="bg-gray-900 dark:bg-[#2b251d] text-gray-400 dark:text-[#b7ab99] text-sm">
         <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
             <div>
                 <h3 class="text-white font-semibold mb-2">European Islamic Forum Netherlands</h3>
@@ -287,11 +444,11 @@
             <div>
                 <h4 class="text-white font-semibold mb-2">Links</h4>
                 <ul class="space-y-1">
-                    <li><a href="./home.html" class="hover:text-white">Home</a></li>
-                    <li><a href="./about.html" class="hover:text-white">About</a></li>
-                    <li><a href="./programs.html" class="hover:text-white">Programs</a></li>
-                    <li><a href="./events.html" class="hover:text-white">Events</a></li>
-                    <li><a href="./contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="/home-2.html" class="hover:text-white">Home</a></li>
+                    <li><a href="/about-2.html" class="hover:text-white">About</a></li>
+                    <li><a href="/programs-2.html" class="hover:text-white">Programs</a></li>
+                    <li><a href="/events-2.html" class="hover:text-white">Events</a></li>
+                    <li><a href="/contact-2.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <div>
@@ -299,7 +456,7 @@
                 <p>Email: info@masjid.org</p>
             </div>
         </div>
-        <div class="border-t border-gray-800 dark:border-green-800 py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
+        <div class="border-t border-gray-800 dark:border-[#3f362b] py-4 text-center text-xs">&copy; <span id="year"></span> European Islamic Forum Netherlands</div>
     </footer>
 </div>
 
@@ -310,11 +467,11 @@
     const nav = document.getElementById('mainNav');
     function handleScroll() {
         if (window.scrollY > 10) {
-            nav.classList.add('bg-black','dark:bg-green-950','shadow','text-white');
-            nav.classList.remove('bg-white/90','dark:bg-green-950/90');
+            nav.classList.add('bg-black','dark:bg-[#2b251d]','shadow','text-white');
+            nav.classList.remove('bg-white/90','dark:bg-[#2b251d]/90');
         } else {
-            nav.classList.remove('bg-black','dark:bg-green-950','shadow','text-white');
-            nav.classList.add('bg-white/90','dark:bg-green-950/90');
+            nav.classList.remove('bg-black','dark:bg-[#2b251d]','shadow','text-white');
+            nav.classList.add('bg-white/90','dark:bg-[#2b251d]/90');
         }
     }
     window.addEventListener('scroll', handleScroll);

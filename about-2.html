@@ -35,6 +35,18 @@
         --beige-accent:#d7bd86;
         --beige-accent-strong:#e5c274;
       }
+      .hero-overlay-layer{
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.22), rgba(0,0,0,0.70)),
+          radial-gradient(circle at 37% 37%, rgba(184,155,94,0.28), rgba(0,0,0,0.55));
+      }
+      .dark .hero-overlay-layer{
+        background:
+          linear-gradient(to bottom, rgba(51,44,35,0.38), rgba(43,37,29,0.85)),
+          radial-gradient(circle at 42% 42%, rgba(155,122,53,0.40), rgba(43,37,29,0.70));
+      }
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-[#2b251d] text-gray-800 dark:text-[#e8dcc7] scroll-smooth">
@@ -53,11 +65,11 @@
     <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-[#2b251d]/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
             <ul class="flex items-center gap-6 text-sm font-medium">
-                <li><a href="/home.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Home</a></li>
-                <li><a href="/about.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">About</a></li>
-                <li><a href="#programs" class="hover:text-blue-600 dark:hover:text-emerald-300">Programs</a></li>
-                <li><a href="#events" class="hover:text-blue-600 dark:hover:text-emerald-300">Events</a></li>
-                <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-emerald-300">Contact</a></li>
+                <li><a href="/home-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Home</a></li>
+                <li><a href="/about-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">About</a></li>
+                <li><a href="/programs-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Programs</a></li>
+                <li><a href="/events-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Events</a></li>
+                <li><a href="/contact-2.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -135,10 +147,11 @@
             <div>
                 <h4 class="text-white font-semibold mb-2">Links</h4>
                 <ul class="space-y-1">
-                    <li><a href="/index.html" class="hover:text-white">Home</a></li>
-                    <li><a href="/about.html" class="hover:text-white">About</a></li>
-                    <li><a href="#programs" class="hover:text-white">Programs</a></li>
-                    <li><a href="#events" class="hover:text-white">Events</a></li>
+                    <li><a href="/home-2.html" class="hover:text-white">Home</a></li>
+                    <li><a href="/about-2.html" class="hover:text-white">About</a></li>
+                    <li><a href="/programs-2.html" class="hover:text-white">Programs</a></li>
+                    <li><a href="/events-2.html" class="hover:text-white">Events</a></li>
+                    <li><a href="/contact-2.html" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <div>

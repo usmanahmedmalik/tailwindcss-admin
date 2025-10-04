@@ -14,10 +14,22 @@
     })();
   </script>
   <style>
-    .hero-overlay-layer{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.65))}
-    .dark .hero-overlay-layer{background:linear-gradient(to bottom,rgba(3,48,42,.35),rgba(3,48,42,.85))}
-    .filter-active{background:#065f46;color:#fff}
-    .dark .filter-active{background:#0d8a6d}
+    :root { --beige-accent:#b89b5e; --beige-accent-strong:#9b7a35; }
+    .dark { --beige-accent:#d7bd86; --beige-accent-strong:#e5c274; }
+    .hero-overlay-layer{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0.22), rgba(0,0,0,0.68)),
+      radial-gradient(circle at 40% 40%, rgba(184,155,94,0.30), rgba(0,0,0,0.55));
+  }
+  .dark .hero-overlay-layer{
+    background:
+      linear-gradient(to bottom, rgba(51,44,35,0.40), rgba(43,37,29,0.88)),
+      radial-gradient(circle at 42% 42%, rgba(155,122,53,0.42), rgba(43,37,29,0.70));
+  }
+    .filter-active{background:var(--beige-accent-strong);color:#fff}
+    .dark .filter-active{background:var(--beige-accent);color:#332c23}
     .accordion-content[hidden]{display:none}
   </style>
   <!-- Optional direct stylesheet fallback if needed:
@@ -40,13 +52,13 @@
   <nav id="mainNav" class="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-green-950/90 backdrop-blur">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
       <ul class="flex items-center gap-6 text-sm font-medium">
-        <li><a href="./home.html" class="hover:text-green-700 dark:hover:text-emerald-300">Home</a></li>
-        <li><a href="./about.html" class="hover:text-green-700 dark:hover:text-emerald-300">About</a></li>
-        <li><a href="./programs.html" class="text-green-700 dark:text-emerald-300 font-semibold">Programs</a></li>
-        <li><a href="./events.html" class="hover:text-green-700 dark:hover:text-emerald-300">Events</a></li>
-        <li><a href="./contact.html" class="hover:text-green-700 dark:hover:text-emerald-300">Contact</a></li>
+        <li><a href="./home.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Home</a></li>
+        <li><a href="./about.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">About</a></li>
+        <li><a href="./programs.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)] font-semibold">Programs</a></li>
+        <li><a href="./events.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Events</a></li>
+        <li><a href="./contact.html" class="hover:text-[var(--beige-accent-strong)] dark:hover:text-[var(--beige-accent)]">Contact</a></li>
       </ul>
-      <a href="/donate" class="hidden sm:inline-block px-4 py-2 rounded-md bg-green-700 hover:bg-green-600 text-white text-sm font-semibold">Donate</a>
+      <a href="/donate" class="hidden sm:inline-block px-4 py-2 rounded-md bg-[var(--beige-accent-strong)] hover:bg-[var(--beige-accent)] text-white text-sm font-semibold">Donate</a>
     </div>
   </nav>
 
@@ -256,7 +268,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="py-24 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-900">
+  <section class="py-24 bg-gray-50 dark:bg-green-950 border-t border-gray-200 dark:border-green-800">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-10 text-center">Program FAQs</h2>
       <div class="space-y-4" id="faq">
