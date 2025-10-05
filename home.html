@@ -36,9 +36,29 @@
         --beige-accent:#d7bd86;
         --beige-accent-strong:#e5c274;
       }
+      /* Beige font theme overrides */
+      body.beige-fonts {
+        color:#3b2f1e;
+      }
+      .dark.beige-fonts {
+        color: var(--beige-accent);
+      }
+      /* Map former emerald / green utilities to beige */
+      .dark.beige-fonts .text-emerald-200,
+      .dark.beige-fonts .text-emerald-300,
+      .dark.beige-fonts [class*="text-emerald-"],
+      .dark.beige-fonts .text-green-700,
+      .dark.beige-fonts .text-green-600,
+      .dark.beige-fonts .text-green-500 { color: var(--beige-accent) !important; }
+      .beige-fonts .text-green-700,
+      .beige-fonts .text-green-600,
+      .beige-fonts .text-green-500 { color: var(--beige-accent-strong) !important; }
+      /* Links previously blue */
+      .beige-fonts a.text-blue-600 { color: var(--beige-accent-strong) !important; }
+      .dark.beige-fonts a.text-blue-600 { color: var(--beige-accent) !important; }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth beige-fonts">
 <div class="min-h-screen flex flex-col">
     <!-- Logo Area -->
     <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
@@ -199,12 +219,12 @@
                 <div class="p-6 rounded-xl bg-gray-50 dark:bg-green-950">
                     <h3 class="font-semibold mb-2">Annual Fundraising Dinner</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">An evening of inspiration, reflection, and community support.</p>
-                    <a href="/events" class="text-sm font-medium text-blue-600 dark:text-emerald-300 hover:underline">Event Details</a>
+                    <a href="/events" class="text-sm font-medium text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] hover:underline">Event Details</a>
                 </div>
                 <div class="p-6 rounded-xl bg-gray-50 dark:bg-green-950">
                     <h3 class="font-semibold mb-2">Youth Retreat</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Weekend retreat fostering leadership and spiritual growth.</p>
-                    <a href="/events#youth-retreat" class="text-sm font-medium text-blue-600 dark:text-emerald-300 hover:underline">Learn More</a>
+                    <a href="/events#youth-retreat" class="text-sm font-medium text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] hover:underline">Learn More</a>
                 </div>
             </div>
         </div>

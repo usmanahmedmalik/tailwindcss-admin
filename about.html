@@ -30,9 +30,20 @@
       }
       :root { --beige-accent:#b89b5e; --beige-accent-strong:#9b7a35; }
       .dark { --beige-accent:#d7bd86; --beige-accent-strong:#e5c274; }
+      body.beige-fonts { color:#3b2f1e; }
+      .dark.beige-fonts { color:var(--beige-accent); }
+      .dark.beige-fonts .text-emerald-200,
+      .dark.beige-fonts .text-emerald-100,
+      .dark.beige-fonts .text-emerald-300,
+      .dark.beige-fonts [class*="text-emerald-"],
+      .dark.beige-fonts .text-green-700 { color:var(--beige-accent)!important; }
+      .beige-fonts .text-green-700,
+      .beige-fonts .text-green-600 { color:var(--beige-accent-strong)!important; }
+      .beige-fonts a.text-blue-600 { color:var(--beige-accent-strong)!important; }
+      .dark.beige-fonts a.text-blue-600 { color:var(--beige-accent)!important; }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth">
+<body class="bg-gray-100 dark:bg-green-950 text-gray-800 dark:text-gray-100 scroll-smooth beige-fonts">
 <div class="min-h-screen flex flex-col">
     <!-- Logo Area -->
     <div class="w-full bg-white dark:bg-green-950 border-b border-gray-200 dark:border-green-900">
@@ -82,7 +93,7 @@
                 <li>Location: Netherlands, serving the European Muslim community</li>
                 <li>Focus Areas: Education, social welfare, youth leadership, interfaith cooperation, research & advisory</li>
                 <li>Core Values: Unity, compassion, integrity, inclusivity, and service</li>
-                <li>Contact: <a href="mailto:info@masjid.org" class="text-blue-600 dark:text-emerald-300 underline">info@masjid.org</a></li>
+                <li>Contact: <a href="mailto:info@masjid.org" class="text-[var(--beige-accent-strong)] dark:text-[var(--beige-accent)] underline">info@masjid.org</a></li>
             </ul>
         </div>
     </section>
